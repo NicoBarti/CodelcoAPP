@@ -47,11 +47,12 @@ class EpisodesController < ApplicationController
   # DELETE /episodes/1
   # DELETE /episodes/1.json
   def destroy
+    @trabajador = Trabajador.find(params[:trabajador_id])
+    @episode = @trabajador.episodes.find(params[:id])
     @episode.destroy
-    respond_to do |format|
-      format.html { redirect_to episodes_url, notice: 'Episode was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to trabajador_path(@trabajador)
+
+
   end
 
   private

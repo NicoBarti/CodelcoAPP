@@ -1,0 +1,71 @@
+<p>
+  <strong>Folio:</strong>
+  <%= episode.folio %>
+</p>
+
+<p>
+  <strong>Tipo ingreso:</strong>
+  <%= episode.tipo_ingreso %>
+</p>
+
+<p>
+  <strong>Fecha ingreso:</strong>
+  <%= episode.fecha_ingreso %>
+</p>
+
+<p>
+  <strong>Contactos laborales:</strong>
+  <%= episode.contactos_laborales %>
+</p>
+
+<p>
+  <strong>Contactos no laborales:</strong>
+  <%= episode.contactos_no_laborales %>
+</p>
+
+<p>
+  <strong>Presentacion:</strong>
+  <%= episode.presentacion %>
+</p>
+
+<p>
+  <strong>Inicio sintomas:</strong>
+  <%= episode.inicio_sintomas %>
+</p>
+
+<p>
+  <strong>Inicio cuarentena:</strong>
+  <%= episode.inicio_cuarentena %>
+</p>
+
+<p>
+  <strong>Fin cuarentena:</strong>
+  <%= episode.fin_cuarentena %>
+</p>
+
+<p>
+  <strong>Fin cuarentena codelco:</strong>
+  <%= episode.fin_cuarentena_codelco %>
+</p>
+
+<p>
+  <strong>Origen contagio:</strong>
+  <%= episode.origen_contagio %>
+</p>
+
+<p>
+  <strong>Cierre:</strong>
+  <%= episode.cierre %>
+</p>
+
+<p>
+  <strong>Trabajador:</strong>
+  <%= episode.trabajador_id %>
+</p>
+
+
+<p>
+<%= link_to 'Eliminar episodio', [episode.trabajador, episode],
+    method: :delete,
+    data: { confirm: 'Seguro de eliminar'}%>
+</p>
