@@ -1,0 +1,87 @@
+<%= form_with(model: trabajador, local: true) do |form| %>
+  <% if trabajador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trabajador.errors.count, "error") %> prohibited this trabajador from being saved:</h2>
+
+      <ul>
+        <% trabajador.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rut %>
+    <%= form.text_field :rut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombres %>
+    <%= form.text_field :nombres %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellido1 %>
+    <%= form.text_field :apellido1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellido2 %>
+    <%= form.text_field :apellido2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sexo %>
+    <%= form.text_field :sexo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_nac %>
+    <%= form.date_select :fecha_nac %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edad %>
+    <%= form.number_field :edad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :region %>
+    <%= form.text_field :region %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comuna %>
+    <%= form.text_field :comuna %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prevision %>
+    <%= form.text_field :prevision %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nacionalidad %>
+    <%= form.text_field :nacionalidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :division %>
+    <%= form.text_field :division %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_trabajador %>
+    <%= form.text_field :tipo_trabajador %>
+  </div>
+
+  <div class="field">
+    <%= form.label :empresa %>
+    <%= form.text_field :empresa %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
