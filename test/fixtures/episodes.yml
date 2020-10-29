@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folio: MyString
+  tipo_ingreso: MyString
+  fecha_ingreso: 
+  contactos_laborales: 1
+  contactos_no_laborales: 1
+  presentacion: MyString
+  inicio_sintomas: 2020-10-29
+  inicio_cuarentena: 2020-10-29
+  fin_cuarentena: 2020-10-29
+  fin_cuarentena_codelco: 2020-10-29
+  origen_contagio: MyString
+  cierre: 2020-10-29 00:24:46
+  trabajador: one
+
+two:
+  folio: MyString
+  tipo_ingreso: MyString
+  fecha_ingreso: 
+  contactos_laborales: 1
+  contactos_no_laborales: 1
+  presentacion: MyString
+  inicio_sintomas: 2020-10-29
+  inicio_cuarentena: 2020-10-29
+  fin_cuarentena: 2020-10-29
+  fin_cuarentena_codelco: 2020-10-29
+  origen_contagio: MyString
+  cierre: 2020-10-29 00:24:46
+  trabajador: two

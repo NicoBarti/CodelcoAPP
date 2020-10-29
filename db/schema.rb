@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_023325) do
+ActiveRecord::Schema.define(version: 2020_10_29_032446) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "folio"
+    t.string "tipo_ingreso"
+    t.datetime "fecha_ingreso"
+    t.integer "contactos_laborales"
+    t.integer "contactos_no_laborales"
+    t.string "presentacion"
+    t.date "inicio_sintomas"
+    t.date "inicio_cuarentena"
+    t.date "fin_cuarentena"
+    t.date "fin_cuarentena_codelco"
+    t.string "origen_contagio"
+    t.datetime "cierre"
+    t.integer "trabajador_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trabajador_id"], name: "index_episodes_on_trabajador_id"
+  end
 
   create_table "trabajadors", force: :cascade do |t|
     t.string "sexo"
@@ -31,4 +50,5 @@ ActiveRecord::Schema.define(version: 2020_10_29_023325) do
     t.string "apellido2"
   end
 
+  add_foreign_key "episodes", "trabajadors"
 end

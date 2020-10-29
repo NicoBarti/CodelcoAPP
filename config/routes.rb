@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :trabajadors
+
+  resources :trabajadors do
+    resources :episodes
+  end
+
+  
 
   get 'entrada/index'
   root 'entrada#index'
