@@ -1,39 +1,39 @@
 <%= form_with(model: [@trabajador, @trabajador.episodes.build], local: true) do |form| %>
 
-
-  <div class="field">
-    <%= form.label :abierto %>
-    <%= form.text_field :abierto %>
-  </div>
-
+<!--
   <div class="field">
     <%= form.label :folio %>
     <%= form.text_field :folio %>
-  </div>
+  </div> -->
 
   <div class="field">
-    <%= form.label :tipo_ingreso %>
-    <%= form.text_field :tipo_ingreso %>
+    <%= form.label(:tipo_ingreso, 'Tipo de ingreso') %>
+    <%= form.select(:tipo_ingreso, [['Caso confirmado', 1], ['Caso sospechoso', 3], ['Caso probable', 4], ['Otro', 7]] ) %>
   </div>
 
+  <!-- <div class="field">
+    <%= form.label :tipo_ingreso %>
+    <%= form.text_field :tipo_ingreso %>
+  </div> -->
+<!--
   <div class="field">
     <%= form.label :fecha_ingreso %>
     <%= form.text_field :fecha_ingreso %>
-  </div>
-
+  </div> -->
+<!--
   <div class="field">
     <%= form.label :contactos_laborales %>
     <%= form.number_field :contactos_laborales %>
-  </div>
-
+  </div> -->
+<!--
   <div class="field">
     <%= form.label :contactos_no_laborales %>
     <%= form.number_field :contactos_no_laborales %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= form.label :presentacion %>
-    <%= form.text_field :presentacion %>
+    <%= form.select(:presentacion, [['Sintomatico', 1], ['Asintomático', 2]]) %>
   </div>
 
   <div class="field">
@@ -46,25 +46,30 @@
     <%= form.date_select :inicio_cuarentena %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :fin_cuarentena %>
     <%= form.date_select :fin_cuarentena %>
-  </div>
+  </div> -->
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :fin_cuarentena_codelco %>
     <%= form.date_select :fin_cuarentena_codelco %>
-  </div>
+  </div> -->
 
   <div class="field">
-    <%= form.label :origen_contagio %>
-    <%= form.text_field :origen_contagio %>
+    <%= form.label(:origen_contagio, 'Origen del contagio') %>
+    <%= form.select(:origen_contagio, [['Laboral', 1], ['No Laboral', 2], ['Indeterminado', 3]]) %>
   </div>
-
+<!--
   <div class="field">
     <%= form.label :cierre %>
     <%= form.datetime_select :cierre %>
-  </div>
+  </div> -->
+
+  <div class="field">
+      <%= form.label(:abierto, 'Epidodio actual') %>
+      <%= form.select(:abierto, [['Abierto', 1]]) %>
+    </div>
 
 
   <div class="actions">

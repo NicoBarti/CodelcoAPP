@@ -40,9 +40,9 @@
         <td><%= trabajador.division %></td>
         <td><%= trabajador.tipo_trabajador %></td>
         <td><%= trabajador.empresa %></td>
-        <td><%= link_to 'Show', trabajador %></td>
-        <td><%= link_to 'Edit', edit_trabajador_path(trabajador) %></td>
-        <td><%= link_to 'Destroy', trabajador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Acciones', trabajador %></td>
+        <td><%= link_to 'Editar datos', edit_trabajador_path(trabajador) %></td>
+        <!-- <td><%= link_to 'Destroy', trabajador, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -50,4 +50,4 @@
 
 <br>
 
-<%= link_to 'New Trabajador', new_trabajador_path %>
+<%= link_to 'Ingresar nuevo Trabajador', new_trabajador_path %>

@@ -10,7 +10,6 @@ class TrabajadorsController < ApplicationController
   # GET /trabajadors/1
   # GET /trabajadors/1.json
   def show
-    @episodioActivo = @trabajador.episodes.reload.find_by abierto: true
     @episode =  @trabajador.episodes.reload.find_by abierto: true
   end
 
