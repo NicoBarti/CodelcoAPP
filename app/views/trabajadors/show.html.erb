@@ -70,12 +70,16 @@
   <%= @trabajador.empresa %>
 </p>
 
+<% if !@trabajador.episodes.empty? %>
 <h2>Episodios anteriores</h2>
 <%= render @trabajador.episodes %>
+<% end %>
 
+
+<% if @trabajador.episodes.empty? %>
 <h2>Ingreso del episodio actual</h2>
 <%= render 'episodes/epi' %>
-
+<% end %>
 
 <%= link_to 'Editar datos trabajador', edit_trabajador_path(@trabajador) %> |
 <%= link_to 'Listado', trabajadors_path %>

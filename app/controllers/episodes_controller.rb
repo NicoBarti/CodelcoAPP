@@ -14,7 +14,11 @@ class EpisodesController < ApplicationController
 
   # GET /episodes/new
   def new
+    @trabajador = Trabajador.find(params[:trabajador_id])
     @episode = Episode.new
+
+    render 'episodes/_epi'
+
   end
 
   # GET /episodes/1/edit

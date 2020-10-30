@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :episodes
   end
 
-  
+  resources :contactos
+
+
 
   get 'entrada/index'
   root 'entrada#index'

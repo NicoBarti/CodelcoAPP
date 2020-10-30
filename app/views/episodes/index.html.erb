@@ -38,9 +38,9 @@
         <td><%= episode.origen_contagio %></td>
         <td><%= episode.cierre %></td>
         <td><%= episode.trabajador_id %></td>
-        <td><%= link_to 'Show', episode %></td>
-        <td><%= link_to 'Edit', edit_episode_path(episode) %></td>
-        <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td>link_to 'Show', trabajador_episode_path(trabajador, episode) </td> -->
+        <!-- <td> link_to 'Edit', edit_trabajador_episode_path(@trabajador, @episodes) </td> -->
+        <!-- <td> link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -48,4 +48,4 @@
 
 <br>
 
-<%= link_to 'New Episode', new_episode_path %>
+<%= link_to 'New Episode', new_trabajador_episode_path %>
