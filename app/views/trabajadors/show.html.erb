@@ -1,85 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Rut:</strong>
-  <%= @trabajador.rut %>
-</p>
+<h2>Datos del trabajador</h2>
+<%= render 'trabajadors/trabajadoractual' %>
 
-<p>
-  <strong>Nombres:</strong>
-  <%= @trabajador.nombres %>
-</p>
-
-<p>
-  <strong>Apellido paterno:</strong>
-  <%= @trabajador.apellido1 %>
-</p>
-
-<p>
-  <strong>Apellido materno:</strong>
-  <%= @trabajador.apellido2 %>
-</p>
-
-<p>
-  <strong>Sexo:</strong>
-  <%= @trabajador.sexo %>
-</p>
-
-<p>
-  <strong>Fecha nac:</strong>
-  <%= @trabajador.fecha_nac %>
-</p>
-
-<p>
-  <strong>Edad:</strong>
-  <%= @trabajador.edad %>
-</p>
-
-<p>
-  <strong>Region:</strong>
-  <%= @trabajador.region %>
-</p>
-
-<p>
-  <strong>Comuna:</strong>
-  <%= @trabajador.comuna %>
-</p>
-
-<p>
-  <strong>Prevision:</strong>
-  <%= @trabajador.prevision %>
-</p>
-
-<p>
-  <strong>Nacionalidad:</strong>
-  <%= @trabajador.nacionalidad %>
-</p>
-
-<p>
-  <strong>Division:</strong>
-  <%= @trabajador.division %>
-</p>
-
-<p>
-  <strong>Tipo trabajador:</strong>
-  <%= @trabajador.tipo_trabajador %>
-</p>
-
-<p>
-  <strong>Empresa:</strong>
-  <%= @trabajador.empresa %>
-</p>
-
-<% if !@trabajador.episodes.empty? %>
-<h2>Episodios anteriores</h2>
-<%= render @trabajador.episodes %>
-<% end %>
-
-
-<% if @trabajador.episodes.empty? %>
+<% if @episode == nil %>
 <h2>Ingreso del episodio actual</h2>
 <%= render 'episodes/epi' %>
+<% else %>
+<h2>Episodio actual</h2>
+<%= render "episodes/show" %>
 <% end %>
 
-<%= link_to 'Editar datos trabajador', edit_trabajador_path(@trabajador) %> |
-<%= link_to 'Listado', trabajadors_path %>
+<br>
+<%= link_to 'Listado de trabajadores', trabajadors_path %>

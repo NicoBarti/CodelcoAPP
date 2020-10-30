@@ -2,6 +2,11 @@
 
 
   <div class="field">
+    <%= form.label :abierto %>
+    <%= form.text_field :abierto %>
+  </div>
+
+  <div class="field">
     <%= form.label :folio %>
     <%= form.text_field :folio %>
   </div>
@@ -61,10 +66,6 @@
     <%= form.datetime_select :cierre %>
   </div>
 
-  <div class="field">
-    <%= form.label :trabajador_id %>
-    <%= form.text_field :trabajador_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
