@@ -28,6 +28,7 @@ class EpisodesController < ApplicationController
   # GET /episodes/1/edit
   def edit
     @trabajador = Trabajador.find(@episode.trabajador_id)
+    # parantiq = episode_params.cambioSeguimiento
   end
 
   # POST /episodes
@@ -59,7 +60,7 @@ class EpisodesController < ApplicationController
 
     respond_to do |format|
       if @episode.update(episode_params)
-        if @episode.tipo_ingreso == "Contacto"
+        if @episode.sintoma == nil
           format.html { redirect_to new_episode_sintoma_path(@episode), notice: 'Se modifico el episodio.' }
           format.json { render :show, status: :ok, location: @episode }
         else

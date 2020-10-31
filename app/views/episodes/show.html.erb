@@ -6,8 +6,11 @@
 <h2>Episodio actual</h2>
 <%= render 'show' %>
 
+<% if @sintoma == nil %>
+<% else %>
 <h2>Síntomas al ingreso</h2>
 <%= render 'sintomas/sinto' %>
+<% end %>
 
 <h2> Contactos </h2>
 <%= render 'contactos/lista' %>
