@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha antigeno:</strong>
+  <%= @test.fecha_antigeno %>
+</p>
+
+<p>
+  <strong>Res antigeno:</strong>
+  <%= @test.res_antigeno %>
+</p>
+
+<p>
+  <strong>Fecha pcr:</strong>
+  <%= @test.fecha_pcr %>
+</p>
+
+<p>
+  <strong>Res pcr:</strong>
+  <%= @test.res_pcr %>
+</p>
+
+<p>
+  <strong>Fecha pcr pac:</strong>
+  <%= @test.fecha_pcr_pac %>
+</p>
+
+<p>
+  <strong>Res pcr pac:</strong>
+  <%= @test.res_pcr_pac %>
+</p>
+
+<p>
+  <strong>Episode:</strong>
+  <%= @test.episode_id %>
+</p>
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>

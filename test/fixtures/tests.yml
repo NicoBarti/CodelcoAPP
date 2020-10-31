@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_antigeno: 2020-10-31
+  res_antigeno: MyString
+  fecha_pcr: 2020-10-31
+  res_pcr: MyString
+  fecha_pcr_pac: 2020-10-31
+  res_pcr_pac: MyString
+  episode: one
+
+two:
+  fecha_antigeno: 2020-10-31
+  res_antigeno: MyString
+  fecha_pcr: 2020-10-31
+  res_pcr: MyString
+  fecha_pcr_pac: 2020-10-31
+  res_pcr_pac: MyString
+  episode: two

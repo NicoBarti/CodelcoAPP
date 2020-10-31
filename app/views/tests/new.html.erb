@@ -1,0 +1,10 @@
+<h2>Datos del trabajador</h2>
+<%= render 'trabajadors/trabajadoractual', trabajador: @trabajador %>
+
+<h2>Episodio actual</h2>
+<%= render "episodes/show", episode: @episode %>
+
+<h2>Testeo</h2>
+<%= render 'form', test: @test %>
+
+<%= link_to 'Volver', trabajador_path(@trabajador) %>

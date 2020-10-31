@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_073409) do
+ActiveRecord::Schema.define(version: 2020_10_31_082117) do
 
   create_table "contactos", force: :cascade do |t|
     t.string "tipo_contacto"
@@ -84,6 +84,19 @@ ActiveRecord::Schema.define(version: 2020_10_31_073409) do
     t.index ["episode_id"], name: "index_sintomas_on_episode_id"
   end
 
+  create_table "tests", force: :cascade do |t|
+    t.date "fecha_antigeno"
+    t.string "res_antigeno"
+    t.date "fecha_pcr"
+    t.string "res_pcr"
+    t.date "fecha_pcr_pac"
+    t.string "res_pcr_pac"
+    t.integer "episode_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_id"], name: "index_tests_on_episode_id"
+  end
+
   create_table "trabajadors", force: :cascade do |t|
     t.string "sexo"
     t.date "fecha_nac"
@@ -107,4 +120,5 @@ ActiveRecord::Schema.define(version: 2020_10_31_073409) do
   add_foreign_key "episodes", "trabajadors"
   add_foreign_key "seguimientos", "episodes"
   add_foreign_key "sintomas", "episodes"
+  add_foreign_key "tests", "episodes"
 end

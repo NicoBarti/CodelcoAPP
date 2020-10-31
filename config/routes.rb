@@ -8,6 +8,7 @@ resources :episodes, only: [:show, :edit, :update, :destroy] do
   resources :contactos, shallow: true
   resources :sintomas, shallow: true
   resources :seguimientos, shallow: true
+  resources :tests, shallow: true
 end
 
 

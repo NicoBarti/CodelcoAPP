@@ -6,7 +6,9 @@
 <% if @episode == nil %>
 <h2>Crear nuevo episodio</h2>
 <%= render 'episodes/epi' %>
+
 <% else %>
+
 <h2>Episodio actual</h2>
 <%= render "episodes/show" %>
 
@@ -15,7 +17,7 @@
 
 <br>
 
-<h2>Acciones de trababilidad y seguimiento</h2>
+<h2>Acciones de trababilidad, testeo y seguimiento</h2>
 
 <% if @episode.cambioSeguimiento == 'Contacto' %>
 <% else %>
@@ -24,6 +26,7 @@
 
 <%= button_to "Seguimiento del trabajador", new_episode_seguimiento_path(@episode), method: 'get' %>
 
+<%= button_to "Ingreso resultados de testeo", new_episode_test_path(@episode), method: 'get' %>
 
 
 <% end %>

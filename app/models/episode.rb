@@ -3,4 +3,5 @@ class Episode < ApplicationRecord
   has_many :contactos
   has_one :sintoma
   has_many :seguimientos
+  has_many :tests
 end

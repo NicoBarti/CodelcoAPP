@@ -14,6 +14,7 @@ class EpisodesController < ApplicationController
     @sintoma = @episode.sintoma
     @contactos = @episode.contactos
     @Useguimiento = @episode.seguimientos.last
+    @tests = @episode.tests
 
   end
 
@@ -39,17 +40,26 @@ class EpisodesController < ApplicationController
 
     # Modifico parámetros antes de guardar
     episode_parametros = episode_params
+    if episode_parametros[:tipo_ingreso] == "Testeo"
+      episode_parametros[:abierto] = false
+    else
       episode_parametros[:abierto] = true
+    end
       episode_parametros[:cambioSeguimiento] = episode_parametros[:tipo_ingreso]
       episode_parametros[:fecha_ingreso] = Date.today
       episode_parametros[:contactos_laborales] = 0
       episode_parametros[:contactos_no_laborales] = 0
 
     @episode = @trabajador.episodes.create(episode_parametros)
+
+    if @episode.tipo_ingreso == "Testeo"
+      redirect_to new_episode_test_path(@episode) and return
+    end
+
     if @episode.tipo_ingreso == "Contacto"
-      redirect_to trabajador_path(@trabajador)
+      redirect_to trabajador_path(@trabajador) and return
     else
-      redirect_to new_episode_sintoma_path(@episode)
+      redirect_to new_episode_sintoma_path(@episode) and return
     end
 
   end
