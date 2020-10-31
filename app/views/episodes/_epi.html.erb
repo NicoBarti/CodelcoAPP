@@ -15,6 +15,12 @@
     <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']]) %>
   </div>
 
+  <div class="field">
+    <%= form.label(:rut_indice, 'Rut del caso índice') %>
+    <%= form.text_field :rut_indice  %>
+  </div>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

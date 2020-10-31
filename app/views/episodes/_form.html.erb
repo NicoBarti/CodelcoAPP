@@ -41,6 +41,12 @@
   </div>
 
   <div class="field">
+    <%= form.label(:rut_indice, 'Rut del caso índice') %>
+    <%= form.text_field :rut_indice  %>
+  </div>
+
+
+  <div class="field">
       <%= form.label(:abierto, 'Cerrar episodio') %>
       <%= form.select(:abierto, [['No', true], ['Finalizar seguimiento', false]]) %>
     </div>

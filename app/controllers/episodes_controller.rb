@@ -60,7 +60,7 @@ class EpisodesController < ApplicationController
 
     respond_to do |format|
       if @episode.update(episode_params)
-        if @episode.sintoma == nil
+        if @episode.sintoma == nil and @episode.abierto
           format.html { redirect_to new_episode_sintoma_path(@episode), notice: 'Se modifico el episodio.' }
           format.json { render :show, status: :ok, location: @episode }
         else
