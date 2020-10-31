@@ -10,7 +10,9 @@
 <h2>Episodio actual</h2>
 <%= render "episodes/show" %>
 <button type="button" name="button">Agregar contactos (trazabilidad)</button>
-<button type="button" name="button">Modificar episodio</button>
+
+<%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get' %>
+
 
 <% end %>
 

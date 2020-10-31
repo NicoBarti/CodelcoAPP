@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   resources :trabajadors do
-    resources :episodes
+    resources :episodes, shallow: true
   end
 
-  resources :contactos
+# resources :episodes, only: [:show, :edit, :update, :destroy] do
+#   resources :contactos, shallow: true
+# end
 
 
 

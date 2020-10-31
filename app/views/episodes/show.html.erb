@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Folio</th>
       <th>Tipo ingreso</th>
       <th>Fecha ingreso</th>
       <th>Contactos laborales</th>
@@ -11,13 +12,16 @@
       <th>Inicio sintomas</th>
       <th>Inicio cuarentena</th>
       <th>Fin cuarentena</th>
+      <th>Fin cuarentena codelco</th>
       <th>Origen contagio</th>
+      <th>Cierre</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
+      <td><%= @episode.folio %></td>
       <td><%= @episode.tipo_ingreso %></td>
       <td><%= @episode.fecha_ingreso %></td>
       <td><%= @episode.contactos_laborales %></td>
@@ -26,7 +30,9 @@
       <td><%= @episode.inicio_sintomas %></td>
       <td><%= @episode.inicio_cuarentena %></td>
       <td><%= @episode.fin_cuarentena %></td>
+      <td><%= @episode.fin_cuarentena_codelco %></td>
       <td><%= @episode.origen_contagio %></td>
+      <td><%= @episode.cierre %></td>
     </tr>
   </tbody>
 

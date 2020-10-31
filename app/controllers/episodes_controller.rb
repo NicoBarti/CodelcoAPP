@@ -23,6 +23,7 @@ class EpisodesController < ApplicationController
 
   # GET /episodes/1/edit
   def edit
+    @trabajador = Trabajador.find(@episode.trabajador_id)
   end
 
   # POST /episodes
@@ -37,9 +38,11 @@ class EpisodesController < ApplicationController
   # PATCH/PUT /episodes/1
   # PATCH/PUT /episodes/1.json
   def update
+    @trabajador = Trabajador.find(@episode.trabajador_id)
+
     respond_to do |format|
       if @episode.update(episode_params)
-        format.html { redirect_to @episode, notice: 'Episode was successfully updated.' }
+        format.html { redirect_to @trabajador, notice: 'Episode was successfully updated.' }
         format.json { render :show, status: :ok, location: @episode }
       else
         format.html { render :edit }

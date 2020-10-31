@@ -11,44 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :folio %>
     <%= form.text_field :folio %>
-  </div>
+  </div> -->
+
+  <div class="field">
+      <%= form.label(:abierto, 'Cerrar episodio') %>
+      <%= form.select(:abierto, [['', true], ['Finalizar seguimiento', false]]) %>
+    </div>
 
   <div class="field">
     <%= form.label :tipo_ingreso %>
-    <%= form.text_field :tipo_ingreso %>
+    <%= @episode.tipo_ingreso %>
   </div>
 
   <div class="field">
     <%= form.label :fecha_ingreso %>
-    <%= form.text_field :fecha_ingreso %>
+    <%= @episode.fecha_ingreso %>
   </div>
 
   <div class="field">
     <%= form.label :contactos_laborales %>
-    <%= form.number_field :contactos_laborales %>
+    <%= @episode.contactos_laborales %>
   </div>
 
   <div class="field">
     <%= form.label :contactos_no_laborales %>
-    <%= form.number_field :contactos_no_laborales %>
+    <%= @episode.contactos_no_laborales %>
   </div>
 
   <div class="field">
     <%= form.label :presentacion %>
-    <%= form.text_field :presentacion %>
+    <%= @episode.presentacion %>
   </div>
 
   <div class="field">
     <%= form.label :inicio_sintomas %>
-    <%= form.date_select :inicio_sintomas %>
+    <%= @episode.inicio_sintomas %>
   </div>
 
   <div class="field">
     <%= form.label :inicio_cuarentena %>
-    <%= form.date_select :inicio_cuarentena %>
+    <%= @episode.inicio_cuarentena %>
   </div>
 
   <div class="field">
@@ -56,25 +61,25 @@
     <%= form.date_select :fin_cuarentena %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :fin_cuarentena_codelco %>
     <%= form.date_select :fin_cuarentena_codelco %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= form.label :origen_contagio %>
     <%= form.text_field :origen_contagio %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :cierre %>
     <%= form.datetime_select :cierre %>
-  </div>
+  </div> -->
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :trabajador_id %>
     <%= form.text_field :trabajador_id %>
-  </div>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>
