@@ -13,6 +13,7 @@ class EpisodesController < ApplicationController
     @trabajador = Trabajador.find(@episode.trabajador_id)
     @sintoma = @episode.sintoma
     @contactos = @episode.contactos
+    @Useguimiento = @episode.seguimientos.last
 
   end
 

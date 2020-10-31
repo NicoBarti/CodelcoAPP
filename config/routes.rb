@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :seguimientos
   resources :trabajadors do
     resources :episodes, shallow: true
   end
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
 resources :episodes, only: [:show, :edit, :update, :destroy] do
   resources :contactos, shallow: true
   resources :sintomas, shallow: true
+  resources :seguimientos, shallow: true
 end
 
 

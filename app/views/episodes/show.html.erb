@@ -15,4 +15,10 @@
 <h2> Contactos </h2>
 <%= render 'contactos/lista' %>
 
+<% if @Useguimiento == nil %>
+<% else %>
+<h2>Último seguimiento</h2>
+<%= render 'seguimientos/ultimo' %>
+<% end %>
+
 <%= link_to 'Volver', trabajador_path(@trabajador) %>

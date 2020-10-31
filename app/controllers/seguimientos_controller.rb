@@ -4,6 +4,8 @@ class SeguimientosController < ApplicationController
   # GET /seguimientos
   # GET /seguimientos.json
   def index
+    @episode = Episode.find(params[:episode_id])
+    @trabajador = Trabajador.find(@episode.trabajador_id)
     @seguimientos = Seguimiento.all
   end
 
@@ -14,6 +16,8 @@ class SeguimientosController < ApplicationController
 
   # GET /seguimientos/new
   def new
+    @episode = Episode.find(params[:episode_id])
+    @trabajador = Trabajador.find(@episode.trabajador_id)
     @seguimiento = Seguimiento.new
   end
 
@@ -24,11 +28,18 @@ class SeguimientosController < ApplicationController
   # POST /seguimientos
   # POST /seguimientos.json
   def create
-    @seguimiento = Seguimiento.new(seguimiento_params)
+    @episode = Episode.find(params[:episode_id])
+    @trabajador = Trabajador.find(@episode.trabajador_id)
+
+    # Modifico parámetros antes de guardar
+    seguimiento_parametros = seguimiento_params
+    seguimiento_parametros[:fecha_seguimiento] = Date.today
+
+    @seguimiento = @episode.seguimientos.create(seguimiento_parametros)
 
     respond_to do |format|
       if @seguimiento.save
-        format.html { redirect_to @seguimiento, notice: 'Seguimiento was successfully created.' }
+        format.html { redirect_to trabajador_path(@trabajador), notice: 'El seguimiento se guardo bien.' }
         format.json { render :show, status: :created, location: @seguimiento }
       else
         format.html { render :new }
@@ -69,6 +80,6 @@ class SeguimientosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seguimiento_params
-      params.require(:seguimiento).permit(:tipo_aislamiento, :estado_seguimiento, :hospitalizacion, :ventilacion, :falleceresp, :estadoegreso, :evolucion, :references)
+      params.require(:seguimiento).permit(:tipo_aislamiento, :fecha_seguimiento, :estado_seguimiento, :hospitalizacion, :ventilacion, :falleceresp, :estadoegreso, :evolucion, :references)
     end
 end

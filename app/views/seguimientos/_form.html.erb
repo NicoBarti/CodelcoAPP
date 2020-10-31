@@ -1,45 +1,33 @@
-<%= form_with(model: seguimiento, local: true) do |form| %>
-  <% if seguimiento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(seguimiento.errors.count, "error") %> prohibited this seguimiento from being saved:</h2>
+<%= form_with(model: [@episode, @episode.seguimientos.build], local: true) do |form| %>
 
-      <ul>
-        <% seguimiento.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="field">
+  <%= form.label :estado_seguimiento %>
+  <%= form.select(:estado_seguimiento, [['No contactado aun'], ['No localizado'], ['En seguimiento'], ['Pasa a caso'], ['Egresa de seguimiento']]) %>
+</div>
+
 
   <div class="field">
     <%= form.label :tipo_aislamiento %>
-    <%= form.text_field :tipo_aislamiento %>
+    <%= form.select(:tipo_aislamiento, [['Domicilio particular'], ['Hospitalizacion clinica'], ['Hospitalizacion domiciliaria'], ['Residencia sanitaria'], ['Residencia CODELCO'], ['Institución']],include_blank: true) %>
   </div>
 
-  <div class="field">
-    <%= form.label :estado_seguimiento %>
-    <%= form.text_field :estado_seguimiento %>
-  </div>
 
   <div class="field">
-    <%= form.label :hospitalizacion %>
+    <%= form.label :hospitalizacion, "Hospitalización de baja o alta complejidad" %>
     <%= form.check_box :hospitalizacion %>
   </div>
 
   <div class="field">
-    <%= form.label :ventilacion %>
+    <%= form.label :ventilacion , "Ventilación mecánica"%>
     <%= form.check_box :ventilacion %>
   </div>
 
   <div class="field">
-    <%= form.label :falleceresp %>
+    <%= form.label :falleceresp, "Fallecimiento respiratorio" %>
     <%= form.check_box :falleceresp %>
   </div>
 
-  <div class="field">
-    <%= form.label :estadoegreso %>
-    <%= form.text_field :estadoegreso %>
-  </div>
+
 
   <div class="field">
     <%= form.label :evolucion %>
@@ -47,9 +35,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :references %>
-    <%= form.text_field :references %>
+    <%= form.label :estadoegreso %>
+    <%= form.select(:estadoegreso, [['Caso índice'], ['Caso probable'], ['Contacto']],include_blank: true)  %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

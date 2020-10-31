@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Estado seguimiento</th>
+      <th>Tipo aislamiento</th>
+      <th>Hospitalizacion</th>
+      <th>Ventilacion</th>
+      <th>Falleceresp</th>
+      <th>Estadoegreso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @Useguimiento.fecha_seguimiento %></td>
+        <td><%= @Useguimiento.estado_seguimiento %></td>
+        <td><%= @Useguimiento.tipo_aislamiento %></td>
+        <td><%= @Useguimiento.hospitalizacion %></td>
+        <td><%= @Useguimiento.ventilacion %></td>
+        <td><%= @Useguimiento.falleceresp %></td>
+        <td><%= @Useguimiento.estadoegreso %></td>
+        </tr>
+  </tbody>
+</table>
+
+
+<div class="">
+  <h3>Evolución</h3>
+  <p><%= @Useguimiento.evolucion %> </p>
+</div>
+
+<%= button_to "Ver más seguimientos", episode_seguimientos_path(@episode), method: 'get' %>
