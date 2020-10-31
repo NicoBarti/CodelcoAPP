@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inicio_sintomas: 2020-10-31
+  fiebre: false
+  cefalea: false
+  disnea: false
+  tos: false
+  odinofagia: false
+  taquipnea: false
+  cianosis: false
+  mialgia: false
+  dolorabdominal: false
+  diarrea: false
+  anosmia: false
+  agueusia: false
+  diabetes: false
+  hipertension: false
+  otras: MyString
+
+two:
+  inicio_sintomas: 2020-10-31
+  fiebre: false
+  cefalea: false
+  disnea: false
+  tos: false
+  odinofagia: false
+  taquipnea: false
+  cianosis: false
+  mialgia: false
+  dolorabdominal: false
+  diarrea: false
+  anosmia: false
+  agueusia: false
+  diabetes: false
+  hipertension: false
+  otras: MyString

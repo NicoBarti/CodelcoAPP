@@ -1,7 +1,5 @@
 <%= form_with(model: [@trabajador, @trabajador.episodes.build], local: true) do |form| %>
 
-
-
   <div class="field">
     <%= form.label(:tipo_ingreso, 'Tipo de ingreso') %>
     <%= form.select(:tipo_ingreso, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Contacto'], ['Otro']] ) %>

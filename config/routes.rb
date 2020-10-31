@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 resources :episodes, only: [:show, :edit, :update, :destroy] do
   resources :contactos, shallow: true
+  resources :sintomas, shallow: true
 end
 
 

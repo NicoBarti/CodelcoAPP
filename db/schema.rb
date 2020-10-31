@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_015446) do
+ActiveRecord::Schema.define(version: 2020_10_31_043313) do
 
   create_table "contactos", force: :cascade do |t|
     t.string "tipo_contacto"
@@ -45,6 +45,29 @@ ActiveRecord::Schema.define(version: 2020_10_31_015446) do
     t.index ["trabajador_id"], name: "index_episodes_on_trabajador_id"
   end
 
+  create_table "sintomas", force: :cascade do |t|
+    t.date "inicio_sintomas"
+    t.boolean "fiebre"
+    t.boolean "cefalea"
+    t.boolean "disnea"
+    t.boolean "tos"
+    t.boolean "odinofagia"
+    t.boolean "taquipnea"
+    t.boolean "cianosis"
+    t.boolean "mialgia"
+    t.boolean "dolorabdominal"
+    t.boolean "diarrea"
+    t.boolean "anosmia"
+    t.boolean "agueusia"
+    t.boolean "diabetes"
+    t.boolean "hipertension"
+    t.string "otras"
+    t.integer "episode_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_id"], name: "index_sintomas_on_episode_id"
+  end
+
   create_table "trabajadors", force: :cascade do |t|
     t.string "sexo"
     t.date "fecha_nac"
@@ -66,4 +89,5 @@ ActiveRecord::Schema.define(version: 2020_10_31_015446) do
 
   add_foreign_key "contactos", "episodes"
   add_foreign_key "episodes", "trabajadors"
+  add_foreign_key "sintomas", "episodes"
 end

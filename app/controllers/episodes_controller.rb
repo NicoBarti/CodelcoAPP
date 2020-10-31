@@ -40,7 +40,11 @@ class EpisodesController < ApplicationController
       episode_parametros[:contactos_no_laborales] = 0
 
     @episode = @trabajador.episodes.create(episode_parametros)
-    redirect_to trabajador_path(@trabajador)
+    if @episode.tipo_ingreso == "Contacto"
+      redirect_to trabajador_path(@trabajador)
+    else
+      redirect_to new_episode_sintoma_path(@episode)
+    end
 
   end
 

@@ -1,0 +1,79 @@
+<%= form_with(model: [@episode, @episode.build_sintoma], local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :inicio_sintomas %>
+    <%= form.date_select :inicio_sintomas, include_blank: true %>
+  </div>
+<br>
+  <div class="field">
+
+        <%= form.label :fiebre %>
+        <%= form.check_box :fiebre %>
+<span>  -</span>
+      <%= form.label :cefalea %>
+        <%= form.check_box :cefalea %>
+        <span>  -</span>
+
+        <%= form.label :disnea %>
+        <%= form.check_box :disnea %>
+        <span>  -</span>
+
+    <%= form.label :tos %>
+    <%= form.check_box :tos %>
+    <span>  -</span>
+
+    <%= form.label :odinofagia %>
+    <%= form.check_box :odinofagia %>
+    <span>  -</span>
+
+    <%= form.label :taquipnea %>
+    <%= form.check_box :taquipnea %>
+    <span>  -</span>
+
+    <%= form.label :cianosis %>
+    <%= form.check_box :cianosis %>
+    <span>  -</span>
+
+    <%= form.label :mialgia %>
+    <%= form.check_box :mialgia %>
+    <span>  -</span>
+
+</div>
+
+<div class="field">
+
+      <%= form.label :dolorabdominal %>
+      <%= form.check_box :dolorabdominal %>
+      <span>  -</span>
+
+    <%= form.label :diarrea %>
+    <%= form.check_box :diarrea %>
+    <span>  -</span>
+
+    <%= form.label :anosmia %>
+    <%= form.check_box :anosmia %>
+    <span>  -</span>
+
+    <%= form.label :agueusia %>
+    <%= form.check_box :agueusia %>
+    <span>  -</span>
+
+    <%= form.label :diabetes %>
+    <%= form.check_box :diabetes %>
+    <span>  -</span>
+
+    <%= form.label :hipertension %>
+    <%= form.check_box :hipertension %>
+    <span>  -</span>
+
+</div>
+<div class="field">
+  <%= form.label :otras %>
+  <%= form.text_field :otras %>
+
+</div>
+<br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
