@@ -100,14 +100,14 @@ class ContactosController < ApplicationController
         if a == nil
           tr = Trabajador.new
           tr[:rut] = @contacto.rut
-          tr[:contactos_laborales] = 0
-          tr[:contactos_no_laborales] = 0
           tr.save
+          tr.episodes.create(contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto')
+
           return false
         else
           activo =  a.episodes.find_by abierto: true
             if activo == nil
-              a.episodes.create(abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto')
+              a.episodes.create(contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto')
             end
           return true
         end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :seguimientos
   resources :trabajadors do
     resources :episodes, shallow: true
   end

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo aislamiento:</strong>
+  <%= @seguimiento.tipo_aislamiento %>
+</p>
+
+<p>
+  <strong>Estado seguimiento:</strong>
+  <%= @seguimiento.estado_seguimiento %>
+</p>
+
+<p>
+  <strong>Hospitalizacion:</strong>
+  <%= @seguimiento.hospitalizacion %>
+</p>
+
+<p>
+  <strong>Ventilacion:</strong>
+  <%= @seguimiento.ventilacion %>
+</p>
+
+<p>
+  <strong>Falleceresp:</strong>
+  <%= @seguimiento.falleceresp %>
+</p>
+
+<p>
+  <strong>Estadoegreso:</strong>
+  <%= @seguimiento.estadoegreso %>
+</p>
+
+<p>
+  <strong>Evolucion:</strong>
+  <%= @seguimiento.evolucion %>
+</p>
+
+<p>
+  <strong>References:</strong>
+  <%= @seguimiento.references %>
+</p>
+
+<%= link_to 'Edit', edit_seguimiento_path(@seguimiento) %> |
+<%= link_to 'Back', seguimientos_path %>
