@@ -30,7 +30,16 @@ class EpisodesController < ApplicationController
   # POST /episodes.json
   def create
     @trabajador = Trabajador.find(params[:trabajador_id])
-    @episode = @trabajador.episodes.create(episode_params)
+
+    # Modifico parámetros antes de guardar
+    episode_parametros = episode_params
+      episode_parametros[:abierto] = true
+      episode_parametros[:cambioSeguimiento] = episode_parametros[:tipo_ingreso]
+      episode_parametros[:fecha_ingreso] = Date.today
+      episode_parametros[:contactos_laborales] = 0
+      episode_parametros[:contactos_no_laborales] = 0
+
+    @episode = @trabajador.episodes.create(episode_parametros)
     redirect_to trabajador_path(@trabajador)
 
   end
@@ -70,6 +79,6 @@ class EpisodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def episode_params
-      params.require(:episode).permit(:folio, :abierto, :tipo_ingreso, :fecha_ingreso, :contactos_laborales, :contactos_no_laborales, :presentacion, :inicio_sintomas, :inicio_cuarentena, :fin_cuarentena, :fin_cuarentena_codelco, :origen_contagio, :cierre, :trabajador_id)
+      params.require(:episode).permit(:folio, :abierto, :cambioSeguimiento, :tipo_ingreso, :fecha_ingreso, :contactos_laborales, :contactos_no_laborales, :presentacion, :inicio_sintomas, :inicio_cuarentena, :fin_cuarentena, :fin_cuarentena_codelco, :origen_contagio, :cierre, :trabajador_id)
     end
 end

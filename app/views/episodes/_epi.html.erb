@@ -8,7 +8,7 @@
 
   <div class="field">
     <%= form.label(:tipo_ingreso, 'Tipo de ingreso') %>
-    <%= form.select(:tipo_ingreso, [['Caso confirmado', 1], ['Caso sospechoso', 3], ['Caso probable', 4], ['Otro', 7]] ) %>
+    <%= form.select(:tipo_ingreso, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Otro']] ) %>
   </div>
 
   <!-- <div class="field">
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :presentacion %>
-    <%= form.select(:presentacion, [['Sintomatico', 1], ['Asintomático', 2]]) %>
+    <%= form.select(:presentacion, [['Sintomatico'], ['Asintomático']]) %>
   </div>
 
   <div class="field">
@@ -58,7 +58,7 @@
 
   <div class="field">
     <%= form.label(:origen_contagio, 'Origen del contagio') %>
-    <%= form.select(:origen_contagio, [['Laboral', 1], ['No Laboral', 2], ['Indeterminado', 3]]) %>
+    <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']]) %>
   </div>
 <!--
   <div class="field">
@@ -66,10 +66,10 @@
     <%= form.datetime_select :cierre %>
   </div> -->
 
-  <div class="field">
+  <!-- <div class="field">
       <%= form.label(:abierto, 'Epidodio actual') %>
       <%= form.select(:abierto, [['Abierto', 1]]) %>
-    </div>
+    </div> -->
 
 
   <div class="actions">

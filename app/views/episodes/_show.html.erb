@@ -18,8 +18,8 @@
 
   <tbody>
     <tr>
-      <td><%= @episode.tipo_ingreso %></td>
-      <td><%= @episode.fecha_ingreso %></td>
+      <td><%= @episode.cambioSeguimiento %></td>
+      <td><%= @episode.fecha_ingreso.to_time.strftime('%d/%m/%Y') %></td>
       <td><%= @episode.contactos_laborales %></td>
       <td><%= @episode.contactos_no_laborales %></td>
       <td><%= @episode.presentacion %></td>

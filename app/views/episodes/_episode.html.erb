@@ -10,12 +10,12 @@
 
 <p>
   <strong>Tipo ingreso:</strong>
-  <%= episode.tipo_ingreso %>
+  <%= episode.cambioSeguimiento %>
 </p>
 
 <p>
   <strong>Fecha ingreso:</strong>
-  <%= episode.fecha_ingreso %>
+  <%= episode.fecha_ingreso.to_time.strftime('%d/%m/%Y') %>
 </p>
 
 <p>

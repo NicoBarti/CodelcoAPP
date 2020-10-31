@@ -18,13 +18,15 @@
 
   <div class="field">
       <%= form.label(:abierto, 'Cerrar episodio') %>
-      <%= form.select(:abierto, [['', true], ['Finalizar seguimiento', false]]) %>
+      <%= form.select(:abierto, [['No', true], ['Finalizar seguimiento', false]]) %>
     </div>
 
   <div class="field">
-    <%= form.label :tipo_ingreso %>
-    <%= @episode.tipo_ingreso %>
+    <%= form.label :cambioSeguimiento, 'Cambiar tipo de ingreso' %>
+    <%= form.select(:cambioSeguimiento, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Otro']]) %>
   </div>
+
+  cambioSeguimiento
 
   <div class="field">
     <%= form.label :fecha_ingreso %>
