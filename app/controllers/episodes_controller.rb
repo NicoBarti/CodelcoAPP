@@ -59,8 +59,15 @@ class EpisodesController < ApplicationController
 
     respond_to do |format|
       if @episode.update(episode_params)
-        format.html { redirect_to @trabajador, notice: 'Episode was successfully updated.' }
-        format.json { render :show, status: :ok, location: @episode }
+        if @episode.tipo_ingreso == "Contacto"
+          format.html { redirect_to new_episode_sintoma_path(@episode), notice: 'Se modifico el episodio.' }
+          format.json { render :show, status: :ok, location: @episode }
+        else
+          format.html { redirect_to @trabajador, notice: 'Se modifico el episodio.' }
+          format.json { render :show, status: :ok, location: @episode }
+        end
+
+
       else
         format.html { render :edit }
         format.json { render json: @episode.errors, status: :unprocessable_entity }
