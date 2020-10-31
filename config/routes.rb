@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     resources :episodes, shallow: true
   end
 
-# resources :episodes, only: [:show, :edit, :update, :destroy] do
-#   resources :contactos, shallow: true
-# end
+resources :episodes, only: [:show, :edit, :update, :destroy] do
+  resources :contactos, shallow: true
+end
 
 
 

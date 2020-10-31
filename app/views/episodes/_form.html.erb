@@ -16,72 +16,34 @@
     <%= form.text_field :folio %>
   </div> -->
 
-  <div class="field">
-      <%= form.label(:abierto, 'Cerrar episodio') %>
-      <%= form.select(:abierto, [['No', true], ['Finalizar seguimiento', false]]) %>
-    </div>
+
 
   <div class="field">
     <%= form.label :cambioSeguimiento, 'Cambiar tipo de ingreso' %>
-    <%= form.select(:cambioSeguimiento, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Otro']]) %>
+    <%= form.select(:cambioSeguimiento, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Contacto'], ['Otro']]) %>
   </div>
 
-  cambioSeguimiento
 
-  <div class="field">
-    <%= form.label :fecha_ingreso %>
-    <%= @episode.fecha_ingreso %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contactos_laborales %>
-    <%= @episode.contactos_laborales %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contactos_no_laborales %>
-    <%= @episode.contactos_no_laborales %>
-  </div>
-
-  <div class="field">
-    <%= form.label :presentacion %>
-    <%= @episode.presentacion %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inicio_sintomas %>
-    <%= @episode.inicio_sintomas %>
-  </div>
 
   <div class="field">
     <%= form.label :inicio_cuarentena %>
-    <%= @episode.inicio_cuarentena %>
+    <%= form.date_select :inicio_cuarentena, include_blank: true %>
   </div>
 
   <div class="field">
     <%= form.label :fin_cuarentena %>
-    <%= form.date_select :fin_cuarentena %>
+    <%= form.date_select :fin_cuarentena, include_blank: true %>
   </div>
-
-  <!-- <div class="field">
-    <%= form.label :fin_cuarentena_codelco %>
-    <%= form.date_select :fin_cuarentena_codelco %>
-  </div> -->
 
   <div class="field">
-    <%= form.label :origen_contagio %>
-    <%= form.text_field :origen_contagio %>
+    <%= form.label :origen_contagio, "Origen" %>
+    <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']]) %>
   </div>
 
-  <!-- <div class="field">
-    <%= form.label :cierre %>
-    <%= form.datetime_select :cierre %>
-  </div> -->
-
-  <!-- <div class="field">
-    <%= form.label :trabajador_id %>
-    <%= form.text_field :trabajador_id %>
-  </div> -->
+  <div class="field">
+      <%= form.label(:abierto, 'Cerrar episodio') %>
+      <%= form.select(:abierto, [['No', true], ['Finalizar seguimiento', false]]) %>
+    </div>
 
   <div class="actions">
     <%= form.submit %>

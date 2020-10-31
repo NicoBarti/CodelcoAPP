@@ -1,5 +1,11 @@
-<h1>New Contacto</h1>
 
+<h2>Datos del trabajador</h2>
+<%= render 'trabajadors/trabajadoractual', trabajador: @trabajador %>
+
+<h2>Episodio actual</h2>
+<%= render "episodes/show", episode: @episode %>
+
+<h2>Ingresar nuevo Contacto</h2>
 <%= render 'form', contacto: @contacto %>
 
-<%= link_to 'Back', contactos_path %>
+<%# <%= link_to 'Back', contactos_path %> %>

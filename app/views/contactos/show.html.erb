@@ -1,6 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Rut:</strong>
+  <%= @contacto.rut %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @contacto.nombre %>
+</p>
+
+<p>
+  <strong>Fecha investigacion:</strong>
+  <%= @contacto.fecha_investigacion %>
+</p>
+
+<p>
   <strong>Tipo contacto:</strong>
   <%= @contacto.tipo_contacto %>
 </p>
@@ -10,15 +25,9 @@
   <%= @contacto.parentesco %>
 </p>
 
-<p>
-  <strong>Fecha investigacion:</strong>
-  <%= @contacto.fecha_investigacion %>
-</p>
 
-<p>
-  <strong>Episode:</strong>
-  <%= @contacto.episode_id %>
-</p>
 
-<%= link_to 'Edit', edit_contacto_path(@contacto) %> |
-<%= link_to 'Back', contactos_path %>
+
+
+<%# <%= link_to 'Edit', edit_contacto_path(@contacto) %> |
+<%# <%= link_to 'Back', contactos_path %> %> %>

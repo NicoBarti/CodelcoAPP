@@ -4,14 +4,24 @@
 <%= render 'trabajadors/trabajadoractual' %>
 
 <% if @episode == nil %>
-<h2>Ingreso del episodio actual</h2>
+<h2>Crear nuevo episodio</h2>
 <%= render 'episodes/epi' %>
 <% else %>
 <h2>Episodio actual</h2>
 <%= render "episodes/show" %>
-<button type="button" name="button">Agregar contactos (trazabilidad)</button>
 
 <%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get' %>
+<br>
+
+<h2>Acciones de trababilidad y seguimiento</h2>
+
+<% if @episode.cambioSeguimiento == 'Contacto' %>
+<% else %>
+<%= button_to "Agregar contactos (trazabilidad)", new_episode_contacto_path(@episode), method: 'get' %>
+<% end %>
+
+
+<button type="button" name="button">Seguimiento del trabajador</button>
 
 
 <% end %>

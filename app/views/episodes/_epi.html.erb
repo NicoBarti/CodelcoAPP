@@ -1,76 +1,21 @@
 <%= form_with(model: [@trabajador, @trabajador.episodes.build], local: true) do |form| %>
 
-<!--
-  <div class="field">
-    <%= form.label :folio %>
-    <%= form.text_field :folio %>
-  </div> -->
+
 
   <div class="field">
     <%= form.label(:tipo_ingreso, 'Tipo de ingreso') %>
-    <%= form.select(:tipo_ingreso, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Otro']] ) %>
-  </div>
-
-  <!-- <div class="field">
-    <%= form.label :tipo_ingreso %>
-    <%= form.text_field :tipo_ingreso %>
-  </div> -->
-<!--
-  <div class="field">
-    <%= form.label :fecha_ingreso %>
-    <%= form.text_field :fecha_ingreso %>
-  </div> -->
-<!--
-  <div class="field">
-    <%= form.label :contactos_laborales %>
-    <%= form.number_field :contactos_laborales %>
-  </div> -->
-<!--
-  <div class="field">
-    <%= form.label :contactos_no_laborales %>
-    <%= form.number_field :contactos_no_laborales %>
-  </div> -->
-
-  <div class="field">
-    <%= form.label :presentacion %>
-    <%= form.select(:presentacion, [['Sintomatico'], ['Asintomático']]) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inicio_sintomas %>
-    <%= form.date_select :inicio_sintomas %>
+    <%= form.select(:tipo_ingreso, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Contacto'], ['Otro']] ) %>
   </div>
 
   <div class="field">
     <%= form.label :inicio_cuarentena %>
-    <%= form.date_select :inicio_cuarentena %>
+    <%= form.date_select :inicio_cuarentena, include_blank: true %>
   </div>
 
-  <!-- <div class="field">
-    <%= form.label :fin_cuarentena %>
-    <%= form.date_select :fin_cuarentena %>
-  </div> -->
-
-  <!-- <div class="field">
-    <%= form.label :fin_cuarentena_codelco %>
-    <%= form.date_select :fin_cuarentena_codelco %>
-  </div> -->
-
   <div class="field">
-    <%= form.label(:origen_contagio, 'Origen del contagio') %>
+    <%= form.label(:origen_contagio, 'Origen') %>
     <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']]) %>
   </div>
-<!--
-  <div class="field">
-    <%= form.label :cierre %>
-    <%= form.datetime_select :cierre %>
-  </div> -->
-
-  <!-- <div class="field">
-      <%= form.label(:abierto, 'Epidodio actual') %>
-      <%= form.select(:abierto, [['Abierto', 1]]) %>
-    </div> -->
-
 
   <div class="actions">
     <%= form.submit %>

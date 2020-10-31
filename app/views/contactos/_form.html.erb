@@ -1,34 +1,23 @@
-<%= form_with(model: contacto, local: true) do |form| %>
-  <% if contacto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contacto.errors.count, "error") %> prohibited this contacto from being saved:</h2>
-
-      <ul>
-        <% contacto.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: [@episode ,@episode.contactos.build], local: true) do |form| %>
 
   <div class="field">
     <%= form.label :tipo_contacto %>
-    <%= form.text_field :tipo_contacto %>
+    <%= form.select(:tipo_contacto, [['Familiar/Intradomiciliario'], ['Laboral'], ['Institucional'], ['Pasajero'], ['Social'], ['Otro']])  %>
   </div>
 
   <div class="field">
     <%= form.label :parentesco %>
-    <%= form.text_field :parentesco %>
+    <%= form.select(:parentesco, [['Madre'], ['Padre'], ['Hermano/a'], ['Hijo/a'], ['Pareja'], ['Otro familiar'], ['Otra relación/No familiar']]) %>
   </div>
 
   <div class="field">
-    <%= form.label :fecha_investigacion %>
-    <%= form.date_select :fecha_investigacion %>
+    <%= form.label :rut %>
+    <%= form.text_field :rut %>
   </div>
 
-  <div class="field">
-    <%= form.label :episode_id %>
-    <%= form.text_field :episode_id %>
+ <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
   </div>
 
   <div class="actions">
