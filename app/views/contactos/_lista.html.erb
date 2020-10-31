@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo contacto</th>
+      <th>Rut</th>
+      <th>Nombre</th>
+      <th>Parentesco</th>
+      <th>Fecha Investigacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contactos.each do |contacto| %>
+      <tr>
+        <td><%= contacto.tipo_contacto %></td>
+        <td><%= contacto.rut %></td>
+        <td><%= contacto.nombre %></td>
+        <td><%= contacto.parentesco %></td>
+        <td><%= contacto.fecha_investigacion%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

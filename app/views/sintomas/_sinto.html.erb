@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div class="">
+  <p>
+    <strong>Inicio sintomas:</strong>
+    <%= @sintoma.inicio_sintomas %>
+    <strong>   Diabetes:</strong>
+    <%= @sintoma.diabetes %>
+    <strong>   Hipertension:</strong>
+    <%= @sintoma.hipertension %>
+    <strong>   Otras:</strong>
+    <%= @sintoma.otras %>
+  </p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fiebre</th>
+      <th>Cefalea</th>
+      <th>Disnea</th>
+      <th>Tos</th>
+      <th>Odinofagia</th>
+      <th>Taquipnea</th>
+      <th>Cianosis</th>
+      <th>Mialgia</th>
+      <th>D.Abdominal</th>
+      <th>Diarrea</th>
+      <th>Anosmia</th>
+      <th>Agueusia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @sintoma.fiebre %></td>
+        <td><%= @sintoma.cefalea %></td>
+        <td><%= @sintoma.disnea %></td>
+        <td><%= @sintoma.tos %></td>
+        <td><%= @sintoma.odinofagia %></td>
+        <td><%= @sintoma.taquipnea %></td>
+        <td><%= @sintoma.cianosis %></td>
+        <td><%= @sintoma.mialgia %></td>
+        <td><%= @sintoma.dolorabdominal %></td>
+        <td><%= @sintoma.diarrea %></td>
+        <td><%= @sintoma.anosmia %></td>
+        <td><%= @sintoma.agueusia %></td>
+      </tr>
+  </tbody>
+
+</table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_043313) do
+ActiveRecord::Schema.define(version: 2020_10_31_061143) do
 
   create_table "contactos", force: :cascade do |t|
     t.string "tipo_contacto"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_043313) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "abierto"
     t.string "cambioSeguimiento"
+    t.decimal "rut_indice"
     t.index ["trabajador_id"], name: "index_episodes_on_trabajador_id"
   end
 

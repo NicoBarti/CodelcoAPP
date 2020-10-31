@@ -6,11 +6,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :parentesco %>
-    <%= form.select(:parentesco, [['Madre'], ['Padre'], ['Hermano/a'], ['Hijo/a'], ['Pareja'], ['Otro familiar'], ['Otra relación/No familiar']]) %>
-  </div>
-
-  <div class="field">
     <%= form.label :rut %>
     <%= form.text_field :rut %>
   </div>
@@ -18,6 +13,11 @@
  <div class="field">
     <%= form.label :nombre %>
     <%= form.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parentesco %>
+    <%= form.select(:parentesco, [['Madre'], ['Padre'], ['Hermano/a'], ['Hijo/a'], ['Pareja'], ['Otro familiar'], ['Otra relación/No familiar']], include_blank: true) %>
   </div>
 
   <div class="actions">
