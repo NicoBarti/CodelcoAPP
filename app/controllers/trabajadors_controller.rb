@@ -27,11 +27,13 @@ class TrabajadorsController < ApplicationController
   # POST /trabajadors
   # POST /trabajadors.json
   def create
+    params[:trabajador][:rut] = RUT::format(params[:trabajador][:rut])
 
-    trabajador_parametros = trabajador_params
-    trabajador_parametros[:rut] = RUT::format(trabajador_parametros[:rut])
-
-    @trabajador = Trabajador.new(trabajador_parametros)
+    # trabajador_parametros = trabajador_params
+    # trabajador_parametros[:rut] = RUT::format(trabajador_parametros[:rut])
+    #
+    # @trabajador = Trabajador.new(trabajador_parametros)
+    @trabajador = Trabajador.new(trabajador_params)
 
 
     respond_to do |format|
