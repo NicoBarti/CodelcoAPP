@@ -27,7 +27,12 @@ class TrabajadorsController < ApplicationController
   # POST /trabajadors
   # POST /trabajadors.json
   def create
-    @trabajador = Trabajador.new(trabajador_params)
+
+    trabajador_parametros = trabajador_params
+    trabajador_parametros[:rut] = RUT::format(trabajador_parametros[:rut])
+
+    @trabajador = Trabajador.new(trabajador_parametros)
+
 
     respond_to do |format|
       if @trabajador.save
@@ -43,8 +48,12 @@ class TrabajadorsController < ApplicationController
   # PATCH/PUT /trabajadors/1
   # PATCH/PUT /trabajadors/1.json
   def update
+
+    trabajador_parametros = trabajador_params
+    trabajador_parametros[:rut] = RUT::format(trabajador_parametros[:rut])
+
     respond_to do |format|
-      if @trabajador.update(trabajador_params)
+      if @trabajador.update(trabajador_parametros)
         format.html { redirect_to @trabajador, notice: 'Trabajador was successfully updated.' }
         format.json { render :show, status: :ok, location: @trabajador }
       else
