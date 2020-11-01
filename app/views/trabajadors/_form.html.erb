@@ -32,6 +32,21 @@
   </div>
 
   <div class="field">
+    <%= form.label :division %>
+    <%= form.select(:division, [['DCH'], ['DRT'], ['DMH'], ['DGM'], ['DSAL'], ['DAND'], ['DVEN'], ['DET'], ['DVEN'], ['VP'], ['CM']])  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_trabajador %>
+    <%= form.select(:tipo_trabajador, [['Propio'], ['Externo']])  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :empresa %>
+    <%= form.text_field :empresa %>
+  </div>
+
+  <div class="field">
     <%= form.label :sexo %>
     <%= form.select(:sexo, [['Masculino'], ['Femenino']])  %>
   </div>
@@ -64,21 +79,6 @@
   <div class="field">
     <%= form.label :nacionalidad %>
     <%= form.text_field :nacionalidad %>
-  </div>
-
-  <div class="field">
-    <%= form.label :division %>
-    <%= form.select(:division, [['Chuqui']])  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tipo_trabajador %>
-    <%= form.text_field :tipo_trabajador %>
-  </div>
-
-  <div class="field">
-    <%= form.label :empresa %>
-    <%= form.text_field :empresa %>
   </div>
 
   <div class="actions">

@@ -29,10 +29,6 @@ class TrabajadorsController < ApplicationController
   def create
     params[:trabajador][:rut] = RUT::format(params[:trabajador][:rut])
 
-    # trabajador_parametros = trabajador_params
-    # trabajador_parametros[:rut] = RUT::format(trabajador_parametros[:rut])
-    #
-    # @trabajador = Trabajador.new(trabajador_parametros)
     @trabajador = Trabajador.new(trabajador_params)
 
 
@@ -51,8 +47,7 @@ class TrabajadorsController < ApplicationController
   # PATCH/PUT /trabajadors/1.json
   def update
 
-    trabajador_parametros = trabajador_params
-    trabajador_parametros[:rut] = RUT::format(trabajador_parametros[:rut])
+    params[:trabajador][:rut] = RUT::format(params[:trabajador][:rut])
 
     respond_to do |format|
       if @trabajador.update(trabajador_parametros)
