@@ -8,3 +8,4 @@ def index
         format.csv { send_data @trabajadors.to_csv, filename: "trabajadores-#{Date.today}.csv" }
   end
 end
+end
