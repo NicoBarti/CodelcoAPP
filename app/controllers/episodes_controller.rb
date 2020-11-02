@@ -22,7 +22,6 @@ class EpisodesController < ApplicationController
   def new
     @trabajador = Trabajador.find(params[:trabajador_id])
     @episode = Episode.new
-
     render 'episodes/_epi'
 
   end
@@ -38,7 +37,7 @@ class EpisodesController < ApplicationController
   def create
     @trabajador = Trabajador.find(params[:trabajador_id])
 
-    params[:episode][:rut] = RUT::format(params[:episode][:rut])
+    params[:episode][:rut_indice] = RUT::format(params[:episode][:rut_indice])
 
     if params[:episode][:tipo_ingreso] == "Testeo"
       params[:episode][:abierto] = false
@@ -85,7 +84,7 @@ class EpisodesController < ApplicationController
   # PATCH/PUT /episodes/1
   # PATCH/PUT /episodes/1.json
   def update
-    params[:episode][:rut] = RUT::format(params[:episode][:rut])
+    params[:episode][:rut_indice] = RUT::format(params[:episode][:rut_indice])
 
     @trabajador = Trabajador.find(@episode.trabajador_id)
 
