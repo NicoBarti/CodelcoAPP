@@ -24,6 +24,8 @@ class Episode < ApplicationRecord
   has_many :tests
 
   validates_associated :sintoma
+  # validates_associated :contacto
+
   validates_with RUTIndiceValidator, if: :conRutIndice
   validates_with ExisteRutCasoIndice, if: :origenLaboral?
 

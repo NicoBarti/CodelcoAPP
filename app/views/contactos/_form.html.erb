@@ -1,8 +1,35 @@
 <%= form_with(model: [@episode ,@episode.contactos.build], local: true) do |form| %>
 
+<% if contacto.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(contacto.errors.count, "error") %> impidió que este contacto se guardara:</h2>
+
+    <ul>
+      <% contacto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <div class="field">
     <%= form.label :tipo_contacto %>
     <%= form.select(:tipo_contacto, [['Familiar/Intradomiciliario'], ['Laboral'], ['Institucional'], ['Pasajero'], ['Social'], ['Otro']])  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_trabajador %>
+    <%= form.select(:tipo_trabajador, [['Propio'], ['Externo']], include_blank: true)  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :division %>
+    <%= form.select(:division, [['DCH'], ['DRT'], ['DMH'], ['DGM'], ['DSAL'], ['DAND'], ['DVEN'], ['DET'], ['DVEN'], ['VP'], ['CM']], include_blank:true)  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :empresa %>
+    <%= form.text_field :empresa %>
   </div>
 
   <div class="field">

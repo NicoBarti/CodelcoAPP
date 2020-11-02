@@ -30,26 +30,33 @@ class ContactosController < ApplicationController
     @trabajador = Trabajador.find(@episode.trabajador_id)
 
     # Modifico parámetros antes de guardar
-    contacto_patametros = contacto_params
-    contacto_patametros[:fecha_investigacion] = Date.today
+    # contacto_patametros = contacto_params
+    params[:contacto][:fecha_investigacion] = Date.today
+    params[:contacto][:rut] = RUT::format(params[:contacto][:rut])
+    # contacto_patametros[:fecha_investigacion] = Date.today
 
-    @contacto = @episode.contactos.create(contacto_patametros)
+    @contacto = @episode.contactos.create(contacto_params)
 
     respond_to do |format|
       if @contacto.save
         actualizaContacos
-        if existeRutLaboral
-          format.html { redirect_to trabajador_path(@trabajador), notice: 'El contacto fue agregado.' }
-          format.json { render :show, status: :created, location: @contacto }
+          if @contacto.tipo_contacto == "Laboral"
+              if existeRutLaboral
+                  format.html { redirect_to trabajador_path(@trabajador), notice: 'El contacto fue agregado.' }
+                  format.json { render :show, status: :created, location: @contacto }
+              else
+                  format.html { redirect_to trabajador_path(@trabajador), notice: 'El RUT ingresado no está registrado como trabajador. Por favor, no olvide ingresarlo en la planilla de trabajadores.' }
+              end
+          else
+              format.html { redirect_to trabajador_path(@trabajador), notice: 'El contacto fue agregado.' }
+              format.json { render :show, status: :created, location: @contacto }
+          end
         else
-          format.html { redirect_to trabajador_path(@trabajador), notice: 'El RUT ingresado no está registrado como trabajador. Por favor, no olvide ingresarlo en la planilla de trabajadores.' }
+          format.html { render :new }
+          format.json { render json: @contacto.errors, status: :unprocessable_entity }
         end
-      else
-        format.html { render :new }
-        format.json { render json: @contacto.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PATCH/PUT /contactos/1
   # PATCH/PUT /contactos/1.json
@@ -83,7 +90,7 @@ class ContactosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contacto_params
-      params.require(:contacto).permit(:tipo_contacto, :rut, :nombre, :parentesco, :fecha_investigacion, :episode_id)
+      params.require(:contacto).permit(:empresa, :tipo_trabajador, :division, :tipo_contacto, :rut, :nombre, :parentesco, :fecha_investigacion, :episode_id)
     end
 
     def actualizaContacos
@@ -100,14 +107,23 @@ class ContactosController < ApplicationController
         if a == nil
           tr = Trabajador.new
           tr[:rut] = @contacto.rut
+          tr[:division] = @contacto.division
+          tr[:tipo_trabajador] = @contacto.tipo_trabajador
+          # if @contacto.tipo_trabajador == 'Externo'
+          #   if @contacto.empresa == nil
+          #     @contacto.empresa = 'PENDIENTE'
+          #   end
+          # end
+          tr[:empresa] = @contacto.empresa
           tr.save
-          tr.episodes.create(rut_indice: @contacto.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto')
+
+          tr.episodes.create(rut_indice: @contacto.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto', origen_contagio: 'Laboral')
 
           return false
         else
           activo =  a.episodes.find_by abierto: true
             if activo == nil
-              a.episodes.create(rut_indice: @contacto.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto')
+              a.episodes.create(rut_indice: @contacto.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto',  origen_contagio: 'Laboral')
             end
           return true
         end

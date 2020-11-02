@@ -12,7 +12,6 @@ resources :episodes, only: [:show, :edit, :update, :destroy] do
 end
 
 
-
   get 'entrada/index'
   root 'entrada#index'
 

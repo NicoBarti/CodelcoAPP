@@ -16,6 +16,8 @@ class Trabajador < ApplicationRecord
   validates_with RUTValidator
 
   validates :empresa, presence: true, if: :trabajadorExterno?
+  # validates_associated :episode
+
 
 def trabajadorExterno?
   tipo_trabajador == "Externo"
