@@ -31,7 +31,6 @@ class SintomasController < ApplicationController
 
     @sintoma = @episode.build_sintoma(sintoma_params)
 
-
     respond_to do |format|
       if @sintoma.save
 

@@ -1,4 +1,20 @@
+<p id="notice"><%= notice %></p>
+
 <%= form_with(model: [@episode, @episode.build_sintoma], local: true) do |form| %>
+
+
+<% if @sintoma.errors.any? %>
+  <div id="error_explanation">
+    <h4><%= pluralize(@sintoma.errors.count, "error") %> impidió crear el listado de síntomas:</h4>
+
+    <ul>
+    <% @sintoma.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 
   <div class="field">
     <%= form.label :inicio_sintomas %>
@@ -9,34 +25,34 @@
 
         <%= form.label :fiebre %>
         <%= form.check_box :fiebre %>
-<span>  -</span>
+<span>   -</span>
       <%= form.label :cefalea %>
         <%= form.check_box :cefalea %>
-        <span>  -</span>
+        <span>   -</span>
 
         <%= form.label :disnea %>
         <%= form.check_box :disnea %>
-        <span>  -</span>
+        <span>   -</span>
 
     <%= form.label :tos %>
     <%= form.check_box :tos %>
-    <span>  -</span>
+    <span>   -</span>
 
     <%= form.label :odinofagia %>
     <%= form.check_box :odinofagia %>
-    <span>  -</span>
+    <span>   -</span>
 
     <%= form.label :taquipnea %>
     <%= form.check_box :taquipnea %>
-    <span>  -</span>
+    <span>   -</span>
 
     <%= form.label :cianosis %>
     <%= form.check_box :cianosis %>
-    <span>  -</span>
+    <span>   -</span>
 
     <%= form.label :mialgia %>
     <%= form.check_box :mialgia %>
-    <span>  -</span>
+    <span>   -</span>
 
 </div>
 
@@ -44,19 +60,21 @@
 
       <%= form.label :dolorabdominal %>
       <%= form.check_box :dolorabdominal %>
-      <span>  -</span>
+      <span>   -</span>
 
     <%= form.label :diarrea %>
     <%= form.check_box :diarrea %>
-    <span>  -</span>
+    <span>   -</span>
 
     <%= form.label :anosmia %>
     <%= form.check_box :anosmia %>
-    <span>  -</span>
+    <span>   -</span>
 
     <%= form.label :agueusia %>
     <%= form.check_box :agueusia %>
-    <span>  -</span>
+    <span>  </span>
+
+    <h4>Comorbilidades</h4>
 
     <%= form.label :diabetes %>
     <%= form.check_box :diabetes %>
@@ -64,7 +82,7 @@
 
     <%= form.label :hipertension %>
     <%= form.check_box :hipertension %>
-    <span>  -</span>
+    <span>  </span>
 
 </div>
 <div class="field">

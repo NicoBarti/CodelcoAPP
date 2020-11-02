@@ -15,4 +15,10 @@ class Trabajador < ApplicationRecord
   validates :rut, uniqueness: true
   validates_with RUTValidator
 
+  validates :empresa, presence: true, if: :trabajadorExterno?
+
+def trabajadorExterno?
+  tipo_trabajador == "Externo"
+end
+
 end

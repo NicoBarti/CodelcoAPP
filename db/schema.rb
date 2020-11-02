@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_174321) do
+ActiveRecord::Schema.define(version: 2020_11_01_233552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_11_01_174321) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "abierto"
     t.string "cambioSeguimiento"
-    t.decimal "rut_indice"
+    t.string "rut_indice"
     t.index ["trabajador_id"], name: "index_episodes_on_trabajador_id"
   end
 
