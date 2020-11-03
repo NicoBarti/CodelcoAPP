@@ -1,38 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Datos del trabajador</h2>
-<%= render 'trabajadors/trabajadoractual' %>
+<div class="card">
+<div class="card-body">
 
-<h2>Testeo</h2>
-<%= render 'tests/index' %>
+
+
+<h4>Datos del trabajador</h4>
+<%= render 'trabajadors/trabajadoractual' %>
+<p class="">
+  <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %>
+</p>
 
 <% if @episode == nil %>
-<h2>Crear nuevo episodio</h2>
+<h4>Crear nuevo episodio</h4>
 <%= render 'episodes/epi' %>
 
 <% else %>
 
-<h2>Episodio actual</h2>
+<h5>Episodio actual</h5>
+
 <%= render "episodes/show" %>
 
-<%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get' %>
-<%= button_to "Detalles Episodio", episode_path(@episode), method: 'get' %>
+<p class="">
+  <%= link_to "Detalles Episodio", episode_path(@episode), method: 'get'  %>
+</p>
 
-<br>
 
-<h2>Acciones de trababilidad, testeo y seguimiento</h2>
+<%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
 
 <% if @episode.cambioSeguimiento == 'Contacto' %>
 <% else %>
-<%= button_to "Agregar contactos (trazabilidad)", new_episode_contacto_path(@episode), method: 'get' %>
+<%= button_to "Agregar contactos (trazabilidad)", new_episode_contacto_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
+<% end %>
+<%= button_to "Seguir al trabajador", new_episode_seguimiento_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
+
+<%= button_to "Ingresar resultados de testeo", new_episode_test_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
+</div>
+</div>
+
+
 <% end %>
 
-<%= button_to "Seguimiento del trabajador", new_episode_seguimiento_path(@episode), method: 'get' %>
-
-<%= button_to "Ingreso resultados de testeo", new_episode_test_path(@episode), method: 'get' %>
-
-
-<% end %>
+<h2>Testeo</h2>
+<%= render 'tests/index' %>
 
 <br>
 <%= link_to 'Listado de trabajadores', trabajadors_path %>
