@@ -1,5 +1,6 @@
 class EpisodesController < ApplicationController
   before_action :set_episode, only: [:show, :edit, :update, :destroy]
+  layout "ficha_trabajador"
 
   # GET /episodes
   # GET /episodes.json
@@ -22,7 +23,7 @@ class EpisodesController < ApplicationController
   def new
     @trabajador = Trabajador.find(params[:trabajador_id])
     @episode = Episode.new
-    render 'episodes/_epi'
+    # render layout: "ficha_trabajador"
 
   end
 

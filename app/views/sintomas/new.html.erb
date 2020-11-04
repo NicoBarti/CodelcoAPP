@@ -1,9 +1,6 @@
-<h2>Datos del trabajador</h2>
-<%= render 'trabajadors/trabajadoractual', trabajador: @trabajador %>
+<% content_for :nuevoSintoma do%>
+<h4>Ingresar síntomas iniciales (momento de notificación)</h4>
 
-<h2>Episodio actual</h2>
-<%= render "episodes/show", episode: @episode %>
+<%= render 'form' %>
 
-<h2>Sintomas al ingreso</h2>
-<%= render 'form', sintoma: @sintoma %>
-<h4>Si no tine síntomas ni comorbilidades puede dejar en blanco</h4>
+<% end %>

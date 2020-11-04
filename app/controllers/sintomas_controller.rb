@@ -1,5 +1,7 @@
 class SintomasController < ApplicationController
   before_action :set_sintoma, only: [:show, :edit, :update, :destroy]
+  layout "ficha_trabajador"
+
 
   # GET /sintomas
   # GET /sintomas.json

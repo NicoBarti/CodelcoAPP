@@ -1,10 +1,12 @@
-<h2>Datos del trabajador</h2>
-<%= render 'trabajadors/trabajadoractual', trabajador: @trabajador %>
+<%# <% content_for :EpisodioActual do %>
+  <%# <%= render "episodes/episodio_actual" %>
+<%# <% end %>
 
-<h2>Episodio actual</h2>
-<%= render "episodes/show", episode: @episode %>
+<% content_for :nuevoTest do %>
+<h4>Ingresar resultado de test</h4>
 
-<h2>Testeo</h2>
-<%= render 'form', test: @test %>
 
+<%= render 'form' %>
 <%= link_to 'Volver', trabajador_path(@trabajador) %>
+
+<% end %>

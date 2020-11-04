@@ -1,48 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<div class="card">
-<div class="card-body">
-
-
-
-<h4>Datos del trabajador</h4>
-<%= render 'trabajadors/trabajadoractual' %>
-<p class="">
-  <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %>
-</p>
 
 <% if @episode == nil %>
-<h4>Crear nuevo episodio</h4>
-<%= render 'episodes/epi' %>
-
+<%= button_to "Nuevo episodio", new_trabajador_episode_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
 <% else %>
-
-<h5>Episodio actual</h5>
-
-<%= render "episodes/show" %>
-
-<p class="">
-  <%= link_to "Detalles Episodio", episode_path(@episode), method: 'get'  %>
+<% content_for :EpisodioActual do %>
+  <%= render "episodes/episodio_actual" %>
+  <p><span> <%= link_to "Detalles del Episodio actual", episode_path(@episode), method: 'get'  %></span>
+  <span>&nbsp;</span><span>&nbsp;</span>
+  <span> <%= link_to "Ver resultados de testeo", episode_tests_path(@episode), method: 'get'  %></span>
 </p>
 
+  <%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
 
-<%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
+  <% if @episode.cambioSeguimiento == 'Contacto' %>
+  <% else %>
+  <%= button_to "Agregar contactos (trazabilidad)", new_episode_contacto_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
+  <% end %>
+  <%= button_to "Seguir al trabajador", new_episode_seguimiento_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
 
-<% if @episode.cambioSeguimiento == 'Contacto' %>
-<% else %>
-<%= button_to "Agregar contactos (trazabilidad)", new_episode_contacto_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
+  <%= button_to "Ingresar resultados de testeo", new_episode_test_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
 <% end %>
-<%= button_to "Seguir al trabajador", new_episode_seguimiento_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
-
-<%= button_to "Ingresar resultados de testeo", new_episode_test_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
-</div>
-</div>
-
-
 <% end %>
-
-<h2>Testeo</h2>
-<%= render 'tests/index' %>
-
-<br>
-<%= link_to 'Listado de trabajadores', trabajadors_path %>

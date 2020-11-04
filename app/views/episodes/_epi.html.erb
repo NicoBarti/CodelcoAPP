@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<h4>Crear nuevo episodio:</h4>
 
 <%= form_with(model: [@trabajador, @trabajador.episodes.build], local: true) do |form| %>
 
@@ -27,3 +28,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= link_to 'Volver', trabajador_path(@trabajador) %>

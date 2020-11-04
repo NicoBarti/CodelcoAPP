@@ -1,5 +1,6 @@
 class ContactosController < ApplicationController
   before_action :set_contacto, only: [:show, :edit, :update, :destroy]
+  layout "ficha_trabajador"
 
   # GET /contactos
   # GET /contactos.json
@@ -117,13 +118,13 @@ class ContactosController < ApplicationController
           tr[:empresa] = @contacto.empresa
           tr.save
 
-          tr.episodes.create(rut_indice: @contacto.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto', origen_contagio: 'Laboral')
+          tr.episodes.create(rut_indice: @trabajador.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto', origen_contagio: 'Laboral')
 
           return false
         else
           activo =  a.episodes.find_by abierto: true
             if activo == nil
-              a.episodes.create(rut_indice: @contacto.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto',  origen_contagio: 'Laboral')
+              a.episodes.create(rut_indice: @trabajador.rut, contactos_laborales: 0,contactos_no_laborales: 0 ,abierto: true, cambioSeguimiento: 'Contacto', fecha_ingreso: Date.today, tipo_ingreso: 'Contacto',  origen_contagio: 'Laboral')
             end
           return true
         end

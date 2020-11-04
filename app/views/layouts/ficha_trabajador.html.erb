@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codelco</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+
+      <p id="notice"><%= notice %></p>
+
+      <div class="card">
+      <div class="card-body">
+
+<!-- Muestra datos del trabajador a través de partial, controler debe proveer instancia @trabajador -->
+      <h4>Datos del trabajador</h4>
+      <%= render 'trabajadors/trabajadoractual' %>
+      <p class="">
+        <%# <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %>
+      </p>
+
+      <div id="content"><%= content_for?(:nuevoEpisodio) ? yield(:nuevoEpisodio) : nil %></div>
+
+      <div id="content"><%= content_for?(:EpisodioActual) ? yield(:EpisodioActual) : nil %></div>
+
+      <div id="content"><%= content_for?(:nuevoTest) ? yield(:nuevoTest) : nil %></div>
+
+      <div id="content"><%= content_for?(:nuevoSintoma) ? yield(:nuevoSintoma) : nil %></div>
+
+      <div id="content"><%= content_for?(:nuevoContacto) ? yield(:nuevoContacto) : nil %></div>
+
+      <div id="content"><%= content_for?(:modificarEpisodio) ? yield(:modificarEpisodio) : nil %></div>
+
+      <div id="content"><%= content_for?(:nuevoSeguimiento) ? yield(:nuevoSeguimiento) : nil %></div>
+
+      <%= yield %>
+
+    </div>
+
+    </div>
+
+    <div id="content"><%= content_for?(:resultadosTesteo) ? yield(:resultadosTesteo) : nil %></div>
+
+      <!-- <h2>Testeo</h2> -->
+      <%# <%= render 'tests/index' %> 
+
+      <br>
+      <%= link_to 'Listado de trabajadores', trabajadors_path %>
+
+
+
+    </div>
+  </body>
+</html>

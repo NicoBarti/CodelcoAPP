@@ -1,5 +1,32 @@
-<h1>New Episode</h1>
+<% content_for :nuevoEpisodio do %>
+<p id="notice"><%= notice %></p>
+<h4>Crear nuevo episodio:</h4>
 
-<%= render 'form', episode: @episode %>
+<%= form_with(model: [@trabajador, @trabajador.episodes.build], local: true) do |form| %>
 
-<%= link_to 'Back', episodes_path %>
+  <div class="field">
+    <%= form.label(:tipo_ingreso, 'Tipo de ingreso') %>
+    <%= form.select(:tipo_ingreso, [['Testeo'], ['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Otro']] ) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inicio_cuarentena %>
+    <%= form.date_select :inicio_cuarentena, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label(:origen_contagio, 'Origen') %>
+    <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']], include_blank: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label(:rut_indice, 'Rut del caso índice') %>
+    <%= form.text_field :rut_indice  %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<% end %>

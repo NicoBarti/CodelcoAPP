@@ -1,6 +1,5 @@
 <%= form_with(model: [@episode, @episode.tests.build], local: true) do |form| %>
 
-
   <div class="field">
     <%= form.label :fecha_antigeno, "Fecha Antígeno" %>
     <%= form.date_select :fecha_antigeno, include_blank: true %>

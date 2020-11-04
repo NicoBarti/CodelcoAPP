@@ -12,7 +12,7 @@ class TrabajadorsController < ApplicationController
   def show
     @episode =  @trabajador.episodes.reload.find_by abierto: true
     @tests = @trabajador.tests
-
+    render layout: "ficha_trabajador"
   end
 
   # GET /trabajadors/new

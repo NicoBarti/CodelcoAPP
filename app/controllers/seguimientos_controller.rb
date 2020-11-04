@@ -1,5 +1,6 @@
 class SeguimientosController < ApplicationController
   before_action :set_seguimiento, only: [:show, :edit, :update, :destroy]
+  layout "ficha_trabajador"
 
   # GET /seguimientos
   # GET /seguimientos.json
