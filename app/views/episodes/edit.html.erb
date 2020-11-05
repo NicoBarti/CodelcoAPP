@@ -1,5 +1,16 @@
 
 <% content_for :modificarEpisodio do %>
 <h4>Modificar Episodio </h4>
+<% if @episode.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@episode.errors.count, "error") %> impide grabar este episodio:</h2>
+
+    <ul>
+      <% @episode.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= render 'form', episode: @episode %>
 <% end %>

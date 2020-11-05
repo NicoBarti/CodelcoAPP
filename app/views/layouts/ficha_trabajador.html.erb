@@ -26,7 +26,6 @@
         <%# <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %>
       </p>
 
-      <%= button_to "Testeo y búsqueda activa", new_trabajador_test_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-info" %>
 
 
       <div id="content"><%= content_for?(:nuevoEpisodio) ? yield(:nuevoEpisodio) : nil %></div>

@@ -39,6 +39,7 @@ class Episode < ApplicationRecord
   validates_with ConfirmaPCR, if: :casoConfirmado?
 
   validates :rut_indice, presence: {message: 'Debe ingresar RUT del caso índice de origen LABORAL'}, if: :origenLaboral?
+  validates :origen_contagio, presence: {message: 'Seleccione el origen del caso'}
 
   def conRutIndice
   if rut_indice.blank?
@@ -57,7 +58,7 @@ class Episode < ApplicationRecord
   end
 
   def casoConfirmado?
-    if tipo_ingreso == "Caso confirmado"
+    if tipo_ingreso == "Caso confirmado" or cambioSeguimiento == "Caso confirmado"
       return true
     else
       return false

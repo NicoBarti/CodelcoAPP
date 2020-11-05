@@ -2,6 +2,28 @@
 
 <%= render 'episodio_actual' %>
 
+<table class ="table">
+
+<% if @episode.fin_cuarentena == nil and @episode.inicio_cuarentena == nil %>
+<p>Sin fechas de inicio y término de cuarentea / aislamiento</p>
+<% else %>
+  <thead>
+    <tr>
+      <th>Fecha inicio cuarentena / aislamiento</th>
+      <th>Fecha termino cuarentena / aislamiento</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @episode.inicio_cuarentena %></td>
+      <td><%= @episode.fin_cuarentena %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+
+
 <h5>Contacos</h5>
 <% if @episode.contactos.blank? %>
 <p>Sin contactos</p>

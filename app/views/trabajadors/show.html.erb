@@ -1,6 +1,8 @@
 
 <% if @episode == nil %>
 <%= button_to "Nuevo episodio", new_trabajador_episode_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
+<%= button_to "Testeo y búsqueda activa", new_trabajador_test_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-info" %>
+
 <% else %>
 <% content_for :EpisodioActual do %>
   <%= render "episodes/episodio_actual" %>
@@ -10,6 +12,7 @@
 </p>
 
   <%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
+  <%= button_to "Testeo y búsqueda activa", new_trabajador_test_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-info" %>
 
   <% if @episode.cambioSeguimiento == 'Contacto' %>
   <% else %>

@@ -1,5 +1,17 @@
 <% content_for :nuevoEpisodio do %>
-<p id="notice"><%= notice %></p>
+
+<% if @episode.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@episode.errors.count, "error") %> impide grabar este episodio:</h2>
+
+    <ul>
+      <% @episode.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
 <h4>Crear nuevo episodio:</h4>
 
 <%= form_with(model: [@trabajador, @trabajador.episodes.build], local: true) do |form| %>
@@ -23,16 +35,7 @@
 
 </p>
 
-<div class="field">
-  <%= form.label :origen_contagio, "Origen" %>
-  <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']], include_blank: true) %>
-</div>
-
-  <div class="field">
-    <%= form.label :inicio_cuarentena %>
-    <%= form.date_select :inicio_cuarentena, include_blank: true, start_year: 2019, end_year:2021 %>
-  </div>
-
+<p>
   <div class="field">
     <%= form.label(:origen_contagio, 'Origen') %>
     <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']], include_blank: true) %>
@@ -41,6 +44,16 @@
   <div class="field">
     <%= form.label(:rut_indice, 'Rut del caso índice') %>
     <%= form.text_field :rut_indice  %>
+  </div>
+</p>
+  <div class="field">
+    <%= form.label :inicio_cuarentena %>
+    <%= form.date_select :inicio_cuarentena, include_blank: true, start_year: 2019, end_year:2021 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fin_cuarentena %>
+    <%= form.date_select :fin_cuarentena, include_blank: true, start_year: 2019, end_year:2021 %>
   </div>
 
 
