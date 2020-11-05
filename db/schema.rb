@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_131922) do
+ActiveRecord::Schema.define(version: 2020_11_05_041925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,16 +91,14 @@ ActiveRecord::Schema.define(version: 2020_11_02_131922) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.date "fecha_antigeno"
-    t.string "res_antigeno"
-    t.date "fecha_pcr"
-    t.string "res_pcr"
-    t.date "fecha_pcr_pac"
-    t.string "res_pcr_pac"
-    t.integer "episode_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["episode_id"], name: "index_tests_on_episode_id"
+    t.bigint "trabajador_id"
+    t.date "fecha_resultado"
+    t.date "fecha_toma"
+    t.string "tipo_test"
+    t.string "resultado"
+    t.index ["trabajador_id"], name: "index_tests_on_trabajador_id"
   end
 
   create_table "trabajadors", force: :cascade do |t|
@@ -126,5 +124,5 @@ ActiveRecord::Schema.define(version: 2020_11_02_131922) do
   add_foreign_key "episodes", "trabajadors"
   add_foreign_key "seguimientos", "episodes"
   add_foreign_key "sintomas", "episodes"
-  add_foreign_key "tests", "episodes"
+  add_foreign_key "tests", "trabajadors"
 end

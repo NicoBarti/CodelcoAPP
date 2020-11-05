@@ -9,7 +9,7 @@ end
 
 class Trabajador < ApplicationRecord
   has_many :episodes
-  has_many :tests, through: :episodes
+  has_many :tests #through: :episodes
 
   validates :rut, :division, :tipo_trabajador, presence: true
   validates :rut, uniqueness: true

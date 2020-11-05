@@ -4,9 +4,9 @@
 <% else %>
 <% content_for :EpisodioActual do %>
   <%= render "episodes/episodio_actual" %>
+
   <p><span> <%= link_to "Detalles del Episodio actual", episode_path(@episode), method: 'get'  %></span>
-  <span>&nbsp;</span><span>&nbsp;</span>
-  <span> <%= link_to "Ver resultados de testeo", episode_tests_path(@episode), method: 'get'  %></span>
+  <!-- <span>&nbsp;</span><span>&nbsp;</span> -->
 </p>
 
   <%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
@@ -17,6 +17,5 @@
   <% end %>
   <%= button_to "Seguir al trabajador", new_episode_seguimiento_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
 
-  <%= button_to "Ingresar resultados de testeo", new_episode_test_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
 <% end %>
 <% end %>

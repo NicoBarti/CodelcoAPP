@@ -5,9 +5,8 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @episode = Episode.find(params[:episode_id])
-    @trabajador = Trabajador.find(@episode.trabajador_id)
-    @tests = Test.all
+    @trabajador = Trabajador.find(params[:trabajador_id])
+    @tests = @trabajador.tests
   end
 
   # GET /tests/1
@@ -17,9 +16,10 @@ class TestsController < ApplicationController
 
   # GET /tests/new
   def new
-    @episode = Episode.find(params[:episode_id])
-    @trabajador = Trabajador.find(@episode.trabajador_id)
+    # @episode = Episode.find(params[:episode_id])
+    @trabajador = Trabajador.find(params[:trabajador_id])
     @test = Test.new
+    @hoy = Date.today
   end
 
   # GET /tests/1/edit
@@ -29,10 +29,10 @@ class TestsController < ApplicationController
   # POST /tests
   # POST /tests.json
   def create
-    @episode = Episode.find(params[:episode_id])
-    @trabajador = Trabajador.find(@episode.trabajador_id)
+    # @episode = Episode.find(params[:episode_id])
 
-    @test = @episode.tests.create(test_params)
+    @trabajador = Trabajador.find(params[:trabajador_id])
+    @test = @trabajador.tests.build(test_params)
 
 
     respond_to do |format|
@@ -40,7 +40,7 @@ class TestsController < ApplicationController
         format.html { redirect_to trabajador_path(@trabajador), notice: 'Resultado de test guardadao' }
         format.json { render :show, status: :created, location: @test }
       else
-        format.html { render :new }
+        format.html { render :new}
         format.json { render json: @test.errors, status: :unprocessable_entity }
       end
     end
@@ -78,6 +78,6 @@ class TestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def test_params
-      params.require(:test).permit(:fecha_antigeno, :res_antigeno, :fecha_pcr, :res_pcr, :fecha_pcr_pac, :res_pcr_pac, :episode_id)
+      params.require(:test).permit(:fecha_resultado, :fecha_toma, :tipo_test, :resultado, :trabajador_id)
     end
 end

@@ -26,6 +26,9 @@
         <%# <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %>
       </p>
 
+      <%= button_to "Testeo y búsqueda activa", new_trabajador_test_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-info" %>
+
+
       <div id="content"><%= content_for?(:nuevoEpisodio) ? yield(:nuevoEpisodio) : nil %></div>
 
       <div id="content"><%= content_for?(:EpisodioActual) ? yield(:EpisodioActual) : nil %></div>
@@ -49,9 +52,15 @@
     <div id="content"><%= content_for?(:resultadosTesteo) ? yield(:resultadosTesteo) : nil %></div>
 
       <!-- <h2>Testeo</h2> -->
-      <%# <%= render 'tests/index' %> 
+      <%# <%= render 'tests/index' %>
 
       <br>
+      <p>
+        <span> <%= link_to "Ver resultados de testeo", trabajador_tests_path(@trabajador), method: 'get'  %></span>
+        <!-- <span>&nbsp;</span><span>&nbsp;</span> -->
+
+      </p>
+
       <%= link_to 'Listado de trabajadores', trabajadors_path %>
 
 

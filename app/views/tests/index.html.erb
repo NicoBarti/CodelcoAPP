@@ -4,25 +4,20 @@
 <table class = "table">
   <thead>
     <tr>
-      <th>ANTIGENO fecha</th>
-      <th>resultado</th>
-      <th>PCR fecha</th>
-      <th>resultado</th>
-      <th>PCR (paciente) fecha</th>
-      <th>resultado</th>
-      <th colspan="3"></th>
+      <th>Fecha del resultado</th>
+      <th>Tipo de test</th>
+      <th>Resultado</th>
+      <th>Fecha de toma</th>
     </tr>
   </thead>
 
   <tbody>
     <% @tests.each do |test| %>
       <tr>
-        <td><%= test.fecha_antigeno %></td>
-        <td><%= test.res_antigeno %></td>
-        <td><%= test.fecha_pcr %></td>
-        <td><%= test.res_pcr %></td>
-        <td><%= test.fecha_pcr_pac %></td>
-        <td><%= test.res_pcr_pac %></td>
+        <td><%= test.fecha_resultado %></td>
+        <td><%= test.tipo_test %></td>
+        <td><%= test.resultado %></td>
+        <td><%= test.fecha_toma %></td>
       </tr>
     <% end %>
   </tbody>
