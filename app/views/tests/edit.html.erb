@@ -1,5 +1,18 @@
 <h1>Editing Test</h1>
 
+<% if @test.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@test.errors.count, "error") %> impide grabar este episodio:</h2>
+
+    <ul>
+      <% @test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= render 'form', test: @test %>
 
 <%= link_to 'Show', @test %> |

@@ -5,6 +5,18 @@
 <% content_for :nuevoTest do %>
 <p id="notice"><%= notice %></p>
 
+<% if @test.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@test.errors.count, "error") %> impide grabar este episodio:</h2>
+
+    <ul>
+      <% @test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h4>Ingresar resultado de test</h4>
 
 

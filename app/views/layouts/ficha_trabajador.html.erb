@@ -22,11 +22,6 @@
 <!-- Muestra datos del trabajador a través de partial, controler debe proveer instancia @trabajador -->
       <h4>Datos del trabajador</h4>
       <%= render 'trabajadors/trabajadoractual' %>
-      <p class="">
-        <%# <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %>
-      </p>
-
-
 
       <div id="content"><%= content_for?(:nuevoEpisodio) ? yield(:nuevoEpisodio) : nil %></div>
 
@@ -50,18 +45,19 @@
 
     <div id="content"><%= content_for?(:resultadosTesteo) ? yield(:resultadosTesteo) : nil %></div>
 
-      <!-- <h2>Testeo</h2> -->
-      <%# <%= render 'tests/index' %>
 
-      <br>
-      <p>
-        <span> <%= link_to "Ver resultados de testeo", trabajador_tests_path(@trabajador), method: 'get'  %></span>
-        <!-- <span>&nbsp;</span><span>&nbsp;</span> -->
-
-      </p>
-
-      <%= link_to 'Listado de trabajadores', trabajadors_path %>
-
+    <div class="card">
+      <table class = "table">
+        <thead>
+          <tr>
+            <th>  <%= link_to "Detalles del Episodio actual", episode_path(@episode), method: 'get'  %></th>
+            <th>  <%= link_to "Ver resultados de testeo", trabajador_tests_path(@trabajador), method: 'get'  %></th>
+            <th>  <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %></th>
+            <th>  <%= link_to 'Listado de trabajadores', trabajadors_path %></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
 
 
     </div>

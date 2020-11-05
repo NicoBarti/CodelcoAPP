@@ -7,10 +7,6 @@
 <% content_for :EpisodioActual do %>
   <%= render "episodes/episodio_actual" %>
 
-  <p><span> <%= link_to "Detalles del Episodio actual", episode_path(@episode), method: 'get'  %></span>
-  <!-- <span>&nbsp;</span><span>&nbsp;</span> -->
-</p>
-
   <%= button_to "Modificar Episodio", edit_episode_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-warning" %>
   <%= button_to "Testeo y búsqueda activa", new_trabajador_test_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-info" %>
 
