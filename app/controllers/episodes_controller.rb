@@ -15,7 +15,6 @@ class EpisodesController < ApplicationController
     @sintoma = @episode.sintoma
     @contactos = @episode.contactos
     @Useguimiento = @episode.seguimientos.last
-    @tests = @episode.tests
 
   end
 
@@ -23,6 +22,7 @@ class EpisodesController < ApplicationController
   def new
     @trabajador = Trabajador.find(params[:trabajador_id])
     @episode = Episode.new
+    # @episode = @trabajador.episodes.build
     # render layout: "ficha_trabajador"
 
   end
@@ -39,45 +39,23 @@ class EpisodesController < ApplicationController
     @trabajador = Trabajador.find(params[:trabajador_id])
 
     params[:episode][:rut_indice] = RUT::format(params[:episode][:rut_indice])
-
-    if params[:episode][:tipo_ingreso] == "Testeo"
-      params[:episode][:abierto] = false
-    else
-      params[:episode][:abierto] = true
-    end
+    params[:episode][:abierto] = true
     params[:episode][:cambioSeguimiento] = params[:episode][:tipo_ingreso]
     params[:episode][:fecha_ingreso] = Date.today
     params[:episode][:contactos_laborales] = 0
     params[:episode][:contactos_no_laborales] = 0
 
-    # Modifico parámetros antes de guardar
-    # episode_parametros = episode_params
-    # if episode_parametros[:tipo_ingreso] == "Testeo"
-    #   episode_parametros[:abierto] = false
-    # else
-    #   episode_parametros[:abierto] = true
-    # end
-      # episode_parametros[:cambioSeguimiento] = episode_parametros[:tipo_ingreso]
-      # episode_parametros[:fecha_ingreso] = Date.today
-      # episode_parametros[:contactos_laborales] = 0
-      # episode_parametros[:contactos_no_laborales] = 0
-      # # episode_parametros[:rut] = RUT::format(episode_parametros[:rut])
-
     @episode = @trabajador.episodes.build(episode_params)
 
     respond_to do |format|
     if @episode.save
-        if @episode.tipo_ingreso == "Testeo"
-        format.html{ redirect_to new_episode_test_path(@episode) and return}
-        end
-
         if @episode.tipo_ingreso == "Contacto"
           format.html{  redirect_to trabajador_path(@trabajador) and return}
           else
           format.html{  redirect_to new_episode_sintoma_path(@episode) and return}
         end
     else
-         format.html{ redirect_to @trabajador, notice: @episode.errors.messages}
+         format.html{ render :new, notice: @episode.errors.messages}
     end
    end
   end
@@ -124,6 +102,6 @@ class EpisodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def episode_params
-      params.require(:episode).permit(:folio, :abierto, :rut_indice, :cambioSeguimiento, :tipo_ingreso, :fecha_ingreso, :contactos_laborales, :contactos_no_laborales, :presentacion, :inicio_sintomas, :inicio_cuarentena, :fin_cuarentena, :fin_cuarentena_codelco, :origen_contagio, :cierre, :trabajador_id)
+      params.require(:episode).permit(:folio, :fechaPCR, :pcr, :abierto, :rut_indice, :cambioSeguimiento, :tipo_ingreso, :fecha_ingreso, :contactos_laborales, :contactos_no_laborales, :presentacion, :inicio_sintomas, :inicio_cuarentena, :fin_cuarentena, :fin_cuarentena_codelco, :origen_contagio, :cierre, :trabajador_id)
     end
 end

@@ -16,6 +16,14 @@ class ExisteRutCasoIndice < ActiveModel::Validator
   end
 end
 
+class ConfirmaPCR < ActiveModel::Validator
+  def validate(record)
+    if record.pcr.blank? or record.fechaPCR.blank? or record.pcr == "-"
+      record.errors[:pcr] << "Debe ingresar fecha y resultado de PCR para caso CONFIRMADO"
+    end
+  end
+end
+
 class Episode < ApplicationRecord
   belongs_to :trabajador
   has_many :contactos
@@ -28,6 +36,7 @@ class Episode < ApplicationRecord
 
   validates_with RUTIndiceValidator, if: :conRutIndice
   validates_with ExisteRutCasoIndice, if: :origenLaboral?
+  validates_with ConfirmaPCR, if: :casoConfirmado?
 
   validates :rut_indice, presence: {message: 'Debe ingresar RUT del caso índice de origen LABORAL'}, if: :origenLaboral?
 
@@ -45,8 +54,14 @@ class Episode < ApplicationRecord
     else
       return false
     end
-
   end
 
+  def casoConfirmado?
+    if tipo_ingreso == "Caso confirmado"
+      return true
+    else
+      return false
+    end
+  end
 
 end

@@ -9,6 +9,25 @@
     <%= form.select(:tipo_ingreso, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Otro']] ) %>
   </div>
 
+<p>
+  <span class="field">
+    <%= form.label(:pcr, 'PCR') %>
+    <%= form.select(:pcr, [['+'], ['Indeterminado'], ['-']], include_blank: true ) %>
+  </span>
+  <span>&nbsp;</span><span>&nbsp;</span>
+  <span>&nbsp;</span><span>&nbsp;</span>
+  <span class="field">
+    <%= form.label(:fechaPCR, 'Fecha PCR') %>
+    <%= form.date_select(:fechaPCR, include_blank: true, start_year: 2019, end_year:2021) %>
+  </span>
+
+</p>
+
+<div class="field">
+  <%= form.label :origen_contagio, "Origen" %>
+  <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']], include_blank: true) %>
+</div>
+
   <div class="field">
     <%= form.label :inicio_cuarentena %>
     <%= form.date_select :inicio_cuarentena, include_blank: true, start_year: 2019, end_year:2021 %>

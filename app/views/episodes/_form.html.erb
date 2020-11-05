@@ -11,12 +11,6 @@
     </div>
   <% end %>
 
-  <!-- <div class="field">
-    <%= form.label :folio %>
-    <%= form.text_field :folio %>
-  </div> -->
-
-
 
   <div class="field">
     <%= form.label :cambioSeguimiento, 'Cambiar tipo de ingreso' %>
@@ -37,7 +31,7 @@
 
   <div class="field">
     <%= form.label :origen_contagio, "Origen" %>
-    <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']]) %>
+    <%= form.select(:origen_contagio, [['Laboral'], ['No Laboral'], ['Indeterminado']], include_blank: true) %>
   </div>
 
   <div class="field">
