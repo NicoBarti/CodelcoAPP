@@ -17,6 +17,19 @@
     <%= form.select(:cambioSeguimiento, [['Caso confirmado'], ['Caso sospechoso'], ['Caso probable'], ['Otro']]) %>
   </div>
 
+  <p>
+    <span class="field">
+      <%= form.label(:pcr, 'PCR') %>
+      <%= form.select(:pcr, [['+'], ['Indeterminado'], ['-']], include_blank: true ) %>
+    </span>
+    <span>&nbsp;</span><span>&nbsp;</span>
+    <span>&nbsp;</span><span>&nbsp;</span>
+    <span class="field">
+      <%= form.label(:fechaPCR, 'Fecha PCR') %>
+      <%= form.date_select(:fechaPCR, include_blank: true, start_year: 2019, end_year:2021) %>
+    </span>
+
+  </p>
 
 
   <div class="field">
