@@ -1,35 +1,42 @@
 <%= form_with(model: [@episode, @episode.tests.build], local: true) do |form| %>
 
-  <div class="field">
+<p>
+  <span class="field">
     <%= form.label :fecha_antigeno, "Fecha Antígeno" %>
-    <%= form.date_select :fecha_antigeno, include_blank: true %>
-  </div>
-
-  <div class="field">
+    <%= form.date_select :fecha_antigeno, include_blank: true, start_year: 2019, end_year:2021 %>
+  </span>
+<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+  <span class="field">
     <%= form.label :res_antigeno , "Resultado de Test Antígeno"%>
     <%= form.select(:res_antigeno, [['-'], ['+'], ['indeterminado']],  include_blank: true)  %>
-  </div>
+  </span>
+</p>
 
-  <div class="field">
+<p>
+  <span class="field">
     <%= form.label :fecha_pcr,  "Fecha PCR"%>
-    <%= form.date_select :fecha_pcr, include_blank: true %>
-  </div>
+    <%= form.date_select :fecha_pcr, include_blank: true, start_year: 2019, end_year:2021 %>
+  </span>
+  <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
 
-  <div class="field">
+  <span class="field">
     <%= form.label :res_pcr, "Resultado PCR" %>
     <%= form.select(:res_pcr, [['-'], ['+'], ['indeterminado']],  include_blank: true)  %>
-  </div>
+  </span>
+</p>
 
-  <div class="field">
+<p>
+  <span class="field">
     <%= form.label :fecha_pcr_pac , "Fecha PCR informada paciente"%>
-    <%= form.date_select :fecha_pcr_pac, include_blank: true %>
-  </div>
+    <%= form.date_select :fecha_pcr_pac, include_blank: true, start_year: 2019, end_year:2021 %>
+  </span>
+  <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
 
-  <div class="field">
+  <span class="field">
     <%= form.label :res_pcr_pac, "Resultado PCR informada paciente" %>
     <%= form.select(:res_pcr_pac, [['-'], ['+'], ['indeterminado']],  include_blank: true) %>
-  </div>
-
+  </span>
+</p>
 
   <div class="actions">
     <%= form.submit %>

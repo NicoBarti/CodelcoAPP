@@ -36,7 +36,7 @@ class ContactosController < ApplicationController
     params[:contacto][:rut] = RUT::format(params[:contacto][:rut])
     # contacto_patametros[:fecha_investigacion] = Date.today
 
-    @contacto = @episode.contactos.create(contacto_params)
+    @contacto = @episode.contactos.build(contacto_params)
 
     respond_to do |format|
       if @contacto.save
