@@ -15,5 +15,7 @@ end
   get 'entrada/index'
   root 'entrada#index'
 
+  get 'episodes/:id/:cerrar', to: 'episodes#edit'
+  # get 'episodes#cerrar'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

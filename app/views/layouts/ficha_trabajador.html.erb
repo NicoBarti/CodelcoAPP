@@ -14,6 +14,8 @@
   <body>
     <div class="container-fluid">
 
+      <%= render 'navbar' %>
+
       <p id="notice"><%= notice %></p>
 
       <div class="card">
@@ -61,9 +63,13 @@
     <table class = "table">
       <thead>
         <tr>
-          <% if @episode %>
+          <% if @episode == nil %>
+          <% else %>
+          <% if @episode.id == nil %>
+          <% else %>
           <th>  <%= link_to "Detalles del Episodio actual", episode_path(@episode), method: 'get'  %></th>
           <th>  <%= link_to "Ver seguimientos anteriores", episode_seguimientos_path(@episode), method: 'get'  %></th>
+          <% end %>
           <% end %>
 
         </tr>

@@ -34,7 +34,17 @@ class EpisodesController < ApplicationController
   def edit
     @trabajador = Trabajador.find(@episode.trabajador_id)
     # parantiq = episode_params.cambioSeguimiento
+
+    if params[:cerrar] == "cerrar"
+      if @episode.update(abierto: false)
+      #   notice: 'Se modifico el episodio.'
+        redirect_to @trabajador
+      end
+
+    end
+
   end
+
 
   # POST /episodes
   # POST /episodes.json
@@ -105,6 +115,6 @@ class EpisodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def episode_params
-      params.require(:episode).permit(:folio, :fechaPCR, :pcr, :abierto, :rut_indice, :cambioSeguimiento, :tipo_ingreso, :fecha_ingreso, :contactos_laborales, :contactos_no_laborales, :presentacion, :inicio_sintomas, :inicio_cuarentena, :fin_cuarentena, :fin_cuarentena_codelco, :origen_contagio, :cierre, :trabajador_id)
+      params.require(:episode).permit(:folio, :cerrar, :fechaPCR, :pcr, :abierto, :rut_indice, :cambioSeguimiento, :tipo_ingreso, :fecha_ingreso, :contactos_laborales, :contactos_no_laborales, :presentacion, :inicio_sintomas, :inicio_cuarentena, :fin_cuarentena, :fin_cuarentena_codelco, :origen_contagio, :cierre, :trabajador_id)
     end
 end

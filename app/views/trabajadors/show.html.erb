@@ -14,5 +14,9 @@
   <% end %>
   <%= button_to "Seguir al trabajador", new_episode_seguimiento_path(@episode), method: 'get', form_class: "btn ", class: "btn btn-primary" %>
 
+  <%= link_to "Cerrar Episodio", url_for(controller: 'episodes', action: 'edit', id: @episode.id, cerrar: 'cerrar') ,method: 'get', form_class: "btn ", class: "btn btn-warning",
+  data: { confirm: '¿Está seguro que quiere cerrar este episodio?' }%>
+
+
 <% end %>
 <% end %>
