@@ -5,7 +5,10 @@ class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.json
   def index
-    @episodes = Episode.all
+    # @episodes = Episode.all
+    @trabajador = Trabajador.find(params[:trabajador_id])
+    @episodes = @trabajador.episodes
+
   end
 
   # GET /episodes/1

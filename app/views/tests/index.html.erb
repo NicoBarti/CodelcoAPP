@@ -18,6 +18,9 @@
         <td><%= test.tipo_test %></td>
         <td><%= test.resultado %></td>
         <td><%= test.fecha_toma %></td>
+        <td><%= link_to 'Editar', edit_test_path(test) %></td>
+        <td><%= link_to 'Borrar', test, method: :delete, data: { confirm: 'Está seguro que quiere eliminar el test?' } %> </td>
+      </tr>
       </tr>
     <% end %>
   </tbody>

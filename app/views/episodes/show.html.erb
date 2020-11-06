@@ -33,7 +33,7 @@
 
 <h5>Síntomas al ingreso</h5>
 <% if @sintoma == nil or @episode.presentacion == "Asintomatico" %>
-<p>Caso asintimático al momento de la notificación</p>
+<p>Caso asintomático al momento de la notificación</p>
 <%else %>
 <%= render 'sintomas/sinto'%>
 <% end %>

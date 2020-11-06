@@ -12,6 +12,8 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
+    @trabajador = Trabajador.find(params[:trabajador_id])
+
   end
 
   # GET /tests/new
@@ -24,6 +26,7 @@ class TestsController < ApplicationController
 
   # GET /tests/1/edit
   def edit
+    @trabajador = Trabajador.find(@test.trabajador_id)
   end
 
   # POST /tests

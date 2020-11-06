@@ -23,6 +23,23 @@
       <h4>Datos del trabajador</h4>
       <%= render 'trabajadors/trabajadoractual' %>
 
+      <%= button_to "Testeo y búsqueda activa", new_trabajador_test_path(@trabajador), method: 'get', form_class: "btn ", class: "btn btn-info" %>
+
+      <table class = "table">
+        <thead>
+          <tr>
+            <th>  <%= link_to "Ver resultados de testeo", trabajador_tests_path(@trabajador), method: 'get'  %></th>
+            <th>  <%= link_to "Ver episodios anteriores", trabajador_episodes_path(@trabajador), method: 'get'  %></th>
+          </tr>
+        </thead>
+      </table>
+
+      </div>
+    </div>
+
+    <div class="card">
+    <div class="card-body">
+
       <div id="content"><%= content_for?(:nuevoEpisodio) ? yield(:nuevoEpisodio) : nil %></div>
 
       <div id="content"><%= content_for?(:EpisodioActual) ? yield(:EpisodioActual) : nil %></div>
@@ -39,27 +56,27 @@
 
       <%= yield %>
 
-    </div>
-
-    </div>
-
     <div id="content"><%= content_for?(:resultadosTesteo) ? yield(:resultadosTesteo) : nil %></div>
 
+    <table class = "table">
+      <thead>
+        <tr>
+          <% if @episode %>
+          <th>  <%= link_to "Detalles del Episodio actual", episode_path(@episode), method: 'get'  %></th>
+          <th>  <%= link_to "Ver seguimientos anteriores", episode_seguimientos_path(@episode), method: 'get'  %></th>
+          <% end %>
 
-    <div class="card">
-      <table class = "table">
-        <thead>
-          <tr>
-            <th>  <%= link_to "Detalles del Episodio actual", episode_path(@episode), method: 'get'  %></th>
-            <th>  <%= link_to "Ver resultados de testeo", trabajador_tests_path(@trabajador), method: 'get'  %></th>
-            <th>  <%= link_to "Detalles del trabajador", trabajador_path(@trabajador), method: 'get'  %></th>
-            <th>  <%= link_to 'Listado de trabajadores', trabajadors_path %></th>
-          </tr>
-        </thead>
-      </table>
+        </tr>
+      </thead>
+    </table>
+
+  </div>
+</div>
+
+
+
     </div>
 
 
-    </div>
   </body>
 </html>

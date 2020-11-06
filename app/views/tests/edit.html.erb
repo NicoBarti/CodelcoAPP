@@ -2,7 +2,7 @@
 
 <% if @test.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@test.errors.count, "error") %> impide grabar este episodio:</h2>
+    <h2><%= pluralize(@test.errors.count, "error") %> impide grabar este test:</h2>
 
     <ul>
       <% @test.errors.full_messages.each do |message| %>
@@ -15,5 +15,4 @@
 
 <%= render 'form', test: @test %>
 
-<%= link_to 'Show', @test %> |
-<%= link_to 'Back', tests_path %>
+<%= link_to 'Volver', trabajador_tests_path(@trabajador) %>
