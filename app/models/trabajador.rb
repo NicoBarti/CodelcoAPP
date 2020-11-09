@@ -7,6 +7,7 @@ class RUTValidator < ActiveModel::Validator
   end
 end
 
+
 class Trabajador < ApplicationRecord
   has_many :episodes
   has_many :tests #through: :episodes
@@ -22,5 +23,16 @@ class Trabajador < ApplicationRecord
 def trabajadorExterno?
   tipo_trabajador == "Externo"
 end
+
+
+def self.to_csv(options = {})
+  CSV.generate(options) do |csv|
+    csv << column_names
+    all.each do |tt|
+      csv << tt.attributes.values_at(*column_names)
+    end
+  end
+end
+
 
 end
