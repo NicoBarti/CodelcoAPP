@@ -5,6 +5,8 @@ class TrabajadorsController < ApplicationController
   # GET /trabajadors.json
   def index
     @trabajadors = Trabajador.all
+    render layout: "lista_y_busca_trabajador", template: 'layouts/blanco'
+
   end
 
   # GET /trabajadors/1
@@ -50,7 +52,7 @@ class TrabajadorsController < ApplicationController
     params[:trabajador][:rut] = RUT::format(params[:trabajador][:rut])
 
     respond_to do |format|
-      if @trabajador.update(trabajador_parametros)
+      if @trabajador.update(trabajador_params)
         format.html { redirect_to @trabajador, notice: 'Trabajador was successfully updated.' }
         format.json { render :show, status: :ok, location: @trabajador }
       else

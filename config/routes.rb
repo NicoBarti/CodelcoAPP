@@ -19,6 +19,7 @@ end
 
   resources :reporte, only: :index
 
+resources :buscaTrabajador, only: [:index, :create], controller: 'busca_trabajador'
 
   get 'episodes/:id/:cerrar', to: 'episodes#edit'
   # get 'episodes#cerrar'

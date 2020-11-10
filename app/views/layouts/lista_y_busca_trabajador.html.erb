@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codelco</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+
+      <%= render 'navbar' %>
+
+      <p id="notice"><%= notice %></p>
+
+
+      <div class="card">
+      <div class="card-body">
+        <h5>Buscar trabajador</h5>
+        <%= render 'busca_trabajador/busca' %>
+      </div>
+    </div>
+
+      <div id="content"><%= content_for?(:resultadoBusqueda) ? yield(:resultadoBusqueda) : nil %></div>
+
+      <div class="card">
+      <div class="card-body">
+        <%= render 'trabajadors/index' %>
+      </div>
+      </div>
+
+
+
+
+
+    </div>
+
+
+  </body>
+</html>
