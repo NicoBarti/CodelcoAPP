@@ -12,14 +12,15 @@ resources :episodes, only: [:show, :edit, :update, :destroy] do
 end
 
 
-  get 'entrada/index'
-  root 'entrada#index'
+  # get 'entrada/index'
+  root 'trabajadors#index'
 
   # get 'reporte/index'
 
   resources :reporte, only: :index
 
-resources :buscaTrabajador, only: [:index, :create], controller: 'busca_trabajador'
+  resources :buscaTrabajador, only: [:index, :create], controller: 'busca_trabajador'
+  resources :panelSeguimientos, only: [:index], controller: 'panel_seguimiento'
 
   get 'episodes/:id/:cerrar', to: 'episodes#edit'
   # get 'episodes#cerrar'

@@ -1,0 +1,28 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>RUT</th>
+      <th>Nombre</th>
+      <th>Apellido1</th>
+      <th>Tipo ingreso</th>
+      <th>Fecha ingreso</th>
+      <th>Inicio cuarentena / aislamiento</th>
+      <th>Origen </th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ss.each do |s| %>
+      <tr>
+        <td><%= @tt.find(s.trabajador_id).rut %></td>
+        <td><%= @tt.find(s.trabajador_id).nombres %></td>
+        <td><%= @tt.find(s.trabajador_id).apellido1 %></td>
+        <td><%= s.tipo_ingreso %></td>
+        <td><%= s.fecha_ingreso %></td>
+        <td><%= s.inicio_cuarentena %></td>
+        <td><%= s.origen_contagio %></td>
+    <% end %>
+  </tbody>
+</table>

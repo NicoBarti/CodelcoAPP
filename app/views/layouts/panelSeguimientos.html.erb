@@ -18,23 +18,22 @@
 
       <p id="notice"><%= notice %></p>
 
-      <%= link_to 'Ingresar nuevo Trabajador', new_trabajador_path %>
       <div class="card">
-      <div class="card-body">
-        <h5>Buscar trabajador</h5>
-        <%= render 'busca_trabajador/busca' %>
-      </div>
-    </div>
 
-      <div id="content"><%= content_for?(:resultadoBusqueda) ? yield(:resultadoBusqueda) : nil %></div>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Episodios activos</a>
+            <%= yield %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pendientes seguir hoy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Episodios cerrados</a>
+          </li>
+        </ul>
 
-      <div class="card">
-      <div class="card-body">
-        <%= render 'trabajadors/index' %>
-      </div>
-      </div>
-
-
+  </div>
 
 
 
